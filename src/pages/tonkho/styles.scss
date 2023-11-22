@@ -1,0 +1,222 @@
+.Tonkho-Container {
+  margin-left: 20px;
+  font-weight: bold;
+  color: #5b626b;
+  background-color: #f8f9fa;
+  margin-top: -20px;
+
+  .MainTonkho {
+    width: 1227px;
+    height: 160px;
+    background-color: #ffffff;
+    display: flex;
+
+    .MainTop {
+      display: flex;
+
+      .Ulsearchcn {
+        margin: 20px;
+
+        li {
+          list-style-type: none;
+          font-size: 14px;
+        }
+
+        .form-select {
+          width: 230px;
+          height: 32px;
+          margin-top: 10px;
+          color: #5b626b;
+          outline: none;
+          border: 1px solid #ccc;
+          padding: 0 0 0 5px;
+        }
+        
+        .iptk {
+          width: 174px;
+          height: 32px;
+          margin-top: 10px;
+          outline: none;
+          border: 1px solid #ccc;
+        }
+
+        .MainBot {
+      display: flex;
+      margin-left: 20px;
+
+      .Bot {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          list-style-type: none;
+          font-size: 14px;
+        }
+
+        .form-control {
+          width: 200px;
+          height: 32px;
+          margin-top: 200px;
+          color: #5b626b;
+          outline: none;
+          border: 1px solid #ccc;
+          margin-top: 30px;
+          margin-left: -165px;
+        }
+
+        .p1 {
+          margin-left: 12px;
+        }
+
+        .form-control1 {
+          width: 200px;
+          height: 32px;
+          margin-top: 200px;
+          color: #5b626b;
+          outline: none;
+          border: 1px solid #ccc;
+          margin-top: 30px;
+          margin-left: -185px;
+        }
+
+        .ngaynhapkho {
+          display: flex;
+          width: 236px;
+          justify-content: space-between;
+        }
+
+        .Formsea {
+          .li3 {
+            list-style-type: none;
+            font-size: 14px;
+            margin-left: 35px;
+          }
+
+          .ipnkhh {
+            width: 229px;
+            height: 32px;
+            margin-left: 37px;
+            margin-top: 12px;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+        }
+
+        .Formsea1 {
+          .li4 {
+            list-style-type: none;
+            font-size: 14px;
+            margin-left: 35px;
+          }
+
+          .ipnkhh {
+            width: 219px;
+            height: 32px;
+            margin-left: 37px;
+            margin-top: 12px;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+        .form-control {
+          width: 260px;
+          height: 32px;
+          color: #5b626b;
+          margin-top: 10px;
+          outline: none;
+          border: 1px solid #ccc;
+          padding: 0 0 0 5px;
+        }
+      }
+    }
+  }
+
+  .MainBot {
+    width: 1227px;
+    height: 160px;
+    background-color: #ffffff;
+    display: flex;
+    margin-top: -54px;
+    margin-left: 18px;
+
+    .li1 {
+      list-style-type: none;
+      font-size: 14px;
+      margin-left: 2px;
+    }
+
+    li {
+      list-style-type: none;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    .ipsp {
+      width: 174px;
+      height: 32px;
+      margin-top: 10px;
+      outline: none;
+      border: 1px solid #ccc;
+    }
+
+    .ipsp1 {
+      width: 174px;
+      height: 32px;
+      margin-top: 10px;
+      outline: none;
+      border: 1px solid #ccc;
+      margin-left: 20px;
+    }
+
+    .BtnSearch {
+      width: 176px;
+      height: 33px;
+      background-color: #535eb4;
+      margin: 79px 0 0 -1153px;
+      border-radius: 3px;
+      color: #deffff;
+      outline: none;
+      border: 1px solid #ccc;
+    }
+
+    .BtnSearch:hover {
+      background-color: #3d4796;
+      color: white;
+    }
+  }
+
+  .ExportFunction {
+    width: 1227px;
+    height: 90px;
+    margin-top: 20px;
+    background-color: #ffffff;
+
+    li {
+      list-style-type: none;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    .BtnEx {
+      width: 85px;
+      height: 32px;
+      margin-left: 20px;
+      margin-top: 15px;
+      background-color: #028b82;
+      color: #deffff;
+      border-radius: 3px;
+      outline: none;
+      border: 1px solid #ccc;
+    }
+
+    .BtnEx:hover {
+      background-color: #045e58;
+      color: white;
+    }
+  }
+}

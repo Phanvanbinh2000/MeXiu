@@ -1,0 +1,200 @@
+.Ncc-Contaiter {
+  margin-left: 20px;
+  font-weight: bold;
+  color: #5b626b;
+  background-color: #f8f9fa;
+  margin-top: -20px;
+
+  .Ncc {
+    width: 1187px;
+    background-color: #ffffff;
+    display: flex;
+    padding: 20px;
+
+    Li {
+      text-decoration: none;
+      list-style-type: none;
+      font-size: 14px;
+    }
+
+    .Litncc {
+      text-decoration: none;
+      list-style-type: none;
+      font-size: 14px;
+      margin-left: 18px;
+    }
+
+    .Sdtncc {
+      text-decoration: none;
+      list-style-type: none;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    .Ipncc {
+      width: 220px;
+      height: 32px;
+      margin-top: 11px;
+      border-radius: 4px;
+      outline: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding-left: 10px;
+    }
+
+    .Ipncc1 {
+      width: 220px;
+      height: 32px;
+      margin-left: 20px;
+      margin-top: 11px;
+      outline: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding-left: 10px;
+    }
+
+    .Ipncc2 {
+      width: 220px;
+      height: 32px;
+      margin-left: 20px;
+      margin-top: 11px;
+      outline: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding-left: 10px;
+    }
+
+    .Btnsearch {
+      width: 86px;
+      height: 34px;
+      background-color: #515baf;
+      margin-left: 20px;
+      margin-top: 29px;
+      outline: none;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      color: #f8f9fa;
+    }
+
+    .Btnsearch:hover {
+      background-color: #252953;
+      color: white;
+    }
+  }
+
+  .Mainncc1 {
+    width: 1227px;
+    height: 250px;
+    margin-top: 25px;
+    background-color: #ffffff;
+
+    .Ctkh2 {
+      margin-top: 25px;
+
+      Li {
+        list-style-type: none;
+        font-size: 13px;
+        outline: none;
+
+        .Btnthem {
+          margin-top: 18px;
+          margin-left: 10px;
+          width: 80px;
+          height: 37px;
+          background-color: #028b82;
+          border-radius: 4px;
+          outline: none;
+          color: #ffffff;
+          border: 1px solid #ccc;
+        }
+
+        .Btnthem:hover {
+          background-color: #035650;
+          color: white;
+        }
+
+        .Btnktsn {
+          margin-left: 10px;
+          width: 129px;
+          height: 37px;
+          background-color: #535eb4;
+          outline: none;
+          color: #ffffff;
+          margin-top: 1px;
+        }
+      }
+
+      .Btnbot {
+        margin-left: 10px;
+
+        .Btnbot1 {
+          margin-top: 18px;
+          width: 56px;
+          height: 37px;
+          background-color: #e0e0ea;
+          outline: none;
+          cursor: pointer;
+          margin-left: 1px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+        }
+
+        .Btnbot1:hover {
+          background-color: rgb(107, 111, 144);
+          color: white;
+        }
+
+        .Btnbot2 {
+          margin-top: 18px;
+          width: 47px;
+          height: 37px;
+          background-color: #e0e0ea;
+          outline: none;
+          cursor: pointer;
+          margin-left: 1px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+        }
+
+        .Btnbot2:hover {
+          background-color: rgb(107, 111, 144);
+          color: white;
+        }
+
+        .Btnbot3 {
+          margin-top: 18px;
+          width: 42px;
+          height: 37px;
+          background-color: #e0e0ea;
+          outline: none;
+          cursor: pointer;
+          margin-left: 1px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+        }
+
+        .Btnbot3:hover {
+          background-color: rgb(107, 111, 144);
+          color: white;
+        }
+
+        .Btnbot4 {
+          margin-top: 18px;
+          width: 114px;
+          height: 37px;
+          background-color: #e0e0ea;
+          outline: none;
+          cursor: pointer;
+          margin-left: 1px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+        }
+
+        .Btnbot4:hover {
+          background-color: rgb(107, 111, 144);
+          color: white;
+        }
+      }
+    }
+  }
+}

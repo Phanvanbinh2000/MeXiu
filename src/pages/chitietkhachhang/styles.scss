@@ -1,0 +1,168 @@
+.Ctkh-Container {
+  margin-left: 20px;
+  font-weight: bold;
+  color: #5b626b;
+  background-color: #f8f9fa;
+  margin-top: -20px;
+
+  .Ctkh {
+    width: 100%px;
+    height: 160px;
+    background-color: #ffffff;
+    display: flex;
+
+    .Ctkh1 {
+      padding: 25px;
+      margin: -14px;
+
+      li {
+        list-style-type: none;
+        font-size: 13px;
+      }
+      .Ipkh {
+        width: 172px;
+        height: 32px;
+        outline: none;
+        margin-top: 10px;
+        padding: 4px;
+        color: #5b626b;
+      }
+
+      .Btnsearch {
+        width: 80px;
+        height: 42px;
+        background-color: #535eb4;
+        margin-top: 28px;
+        border-radius: 3px;
+        color: #ffffff;
+        outline: none;
+        border: 1px solid #ccc;
+      }
+
+      .Btnsearch:hover {
+        background-color: #0a114d;
+        color: white;
+      }
+    }
+  }
+
+  .Main-Ctkh1 {
+    width: 1227px;
+    height: 250px;
+    margin-top: 25px;
+    background-color: #ffffff;
+
+    .Ctkh2 {
+      margin-top: 25px;
+
+      li {
+        list-style-type: none;
+        font-size: 13px;
+        outline: none;
+
+        .Btnthem {
+          margin-top: 18px;
+          margin-left: 10px;
+          width: 80px;
+          height: 37px;
+          background-color: #028b82;
+          border-radius: 4px;
+          outline: none;
+          color: #ffffff;
+          outline: none;
+          border: 1px solid #ccc;
+        }
+
+        .Btnthem:hover {
+          background-color: #045650;
+          color: white;
+        }
+
+        .Btnktsn {
+          margin-left: 10px;
+          width: 129px;
+          height: 37px;
+          background-color: #535eb4;
+          outline: none;
+          color: #ffffff;
+          margin-top: 1px;
+          outline: none;
+          border: 1px solid #ccc;
+        }
+
+        .Btnktsn:hover {
+          background-color: #292e57;
+          color: white;
+        }
+      }
+      .Btnbot {
+        margin-left: 10px;
+        .Btnbot1 {
+          margin-top: 18px;
+          width: 56px;
+          height: 37px;
+          background-color: #e0e0ea;
+          outline: none;
+          cursor: pointer;
+          margin-left: 1px;
+          border: 1px solid #ccc;
+          outline: none;
+          border: 1px solid #ccc;
+        }
+
+        .Btnbot1:hover {
+          background-color: rgb(107, 111, 144);
+          color: white;
+        }
+
+        .Btnbot2 {
+          margin-top: 18px;
+          width: 47px;
+          height: 37px;
+          background-color: #e0e0ea;
+          outline: none;
+          cursor: pointer;
+          margin-left: 1px;
+          border: 1px solid #ccc;
+        }
+
+        .Btnbot2:hover {
+          background-color: rgb(107, 111, 144);
+          color: white;
+        }
+
+        .Btnbot3 {
+          margin-top: 18px;
+          width: 42px;
+          height: 37px;
+          background-color: #e0e0ea;
+          outline: none;
+          cursor: pointer;
+          margin-left: 1px;
+          border: 1px solid #ccc;
+        }
+
+        .Btnbot3:hover {
+          background-color: rgb(107, 111, 144);
+          color: white;
+        }
+
+        .Btnbot4 {
+          margin-top: 18px;
+          width: 114px;
+          height: 37px;
+          background-color: #e0e0ea;
+          outline: none;
+          cursor: pointer;
+          margin-left: 1px;
+          border: 1px solid #ccc;
+        }
+
+        .Btnbot4:hover {
+          background-color: rgb(107, 111, 144);
+          color: white;
+        }
+      }
+    }
+  }
+}

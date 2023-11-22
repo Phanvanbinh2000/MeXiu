@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.Login-Container{
+    width: 100%;
+    background-color: #f8f9fa;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    overflow: hidden;
+
+    .FormLogin{
+        width: 450px;
+        height: 550px;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        margin-top: 55px;
+        // margin-bottom: 90px 170px;
+     
+        .TopLogin{
+            height: 95px;
+            background-color: #626ed4;
+            text-align: center;
+            color: beige;
+            padding-top: 20px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+
+            h3 {
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+            p {
+                color: #aca4de; 
+                font-size: 14px;
+                margin-top: 8px;
+            }
+        }
+
+        .Logo {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 190px;
+            margin: 0 auto;
+            width: 74px;
+            height: 74px;
+            line-height: 74px;
+            background: #fff;
+            border-radius: 50%;
+            border-bottom: 2px solid #02a499;
+        }
+
+        .IconHome{
+            top: 70px;
+            left: 70px;
+            border-radius: 50%;
+            margin: 24px;
+        }
+        
+        .BottomLogin{
+            // height: 440px;
+            background-color: #fff;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            padding: 50px 10px 60px 10px;
+            p{
+                margin-left: 30px;
+            }
+
+            .Label {
+                color: #545354;
+                font-weight: 600;
+                margin: 8px 30px;
+            }
+
+            .TextField{
+                width: 83.6%;
+                margin-left: 30px;
+                outline: none;
+                padding: 7px 4px;
+                font-size: 14px;
+                border: 1px solid gray;
+                border-radius: 3px;
+            }
+
+            .FormCheck {
+                margin-top: 16px;
+                // display: flex;
+                // justify-content: space-between;
+                
+                .Checkbox{
+                    margin-left: 30px;
+                }
+
+                span {
+                    margin-left: 4px;
+                    margin-top: 4px;
+                }
+    
+                .BtnLogin{
+                    float:  right;
+                    margin-right: 30px;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    background: #6472e0;
+                    outline: none;
+
+                    .TxtLogin {
+                        font-size: 14px;
+                        color: #fff;
+                        margin-left: 3px;
+                        margin-top: -2px;
+                    }
+
+                    &:hover {
+                        background: #4b5ac7;
+                    }
+                }
+            }
+
+        }
+
+        
+    }
+    .footer {
+        width: 450px;
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #7c7b7c;
+        // background: #02a499;
+    }
+
+    .iconHomePage {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    .footer{
+        margin-top: 50px;
+    }
+}

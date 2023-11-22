@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Container {
+  width: 100%;
+  display: flex;
+
+  .Content-Navbar {
+    width: calc(100vw - 250px);
+    height: auto;
+
+    .bi-person-circle {
+      margin-right: 4px;
+    }
+  }
+
+  .Navbar-Container {
+    background-color: #333547;
+    cursor: pointer;
+
+    .Mainicon {
+      margin-top: 1.8vh;
+    }
+
+    p {
+      margin-left: 2.2vw;
+      color: rgb(119, 142, 142);
+      font-size: 70%;
+      margin: 2vh;
+    }
+
+    a {
+      margin-left: 2.2vw;
+      color: rgb(119, 142, 142);
+      margin: 1.5vh;
+      text-decoration: none;
+    }
+
+    .Main-Nav {
+      .Main-Menu {
+        list-style: none;
+        padding-left: 0;
+        color: rgb(119, 142, 142);
+        text-decoration: none;
+
+        .d-block {
+          max-height: 50vh;
+          transition: max-height 0.5s ease-in;
+        }
+
+        .d-none {
+          z-index: 1;
+          max-height: 0;
+          transition: max-height 0.5s ease-out;
+        }
+
+        .Menu {
+          background: #333547;
+          display: block;
+          float: left;
+          padding: 1rem;
+          position: relative;
+          text-decoration: none;
+          transition-duration: 0.5s;
+          z-index: 3 !important;
+          width: 87%;
+
+          .Sub-Menu {
+            left: 0;
+            text-decoration: none;
+            list-style-type: none;
+            overflow: hidden;
+            margin-left: 1.5vw;
+
+            .sub-menu-item {
+              z-index: 1 !important;
+              margin: 1.5vh 0;
+              display: block;
+              text-decoration: none;
+              &:hover {
+                color: rgb(198, 195, 195);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .Titlebar {
+    cursor: pointer;
+    background-color: #ececf1;
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    justify-content: space-between;
+
+    .fa-solid {
+      margin: 2vh;
+      width: 2.5vw;
+      height: 2.5vh;
+    }
+    .Navbar-Right {
+      display: flex;
+      justify-content: end;
+
+      .Btnsearch {
+        border: 1px solid gray;
+        display: flex;
+        justify-content: end;
+        height: 4.2vh;
+        border: 1px solid #ccc;
+        border-radius: 2.1vh;
+        margin-top: 1.3vh;
+        margin-right: 2.4vw;
+        outline: none;
+
+        .Search {
+          margin-left: 70%;
+          font-weight: 600;
+          height: 4vh;
+          background-color: #ececf1;
+          border-radius: 3.5vh;
+          outline: none;
+          border: none;
+          padding: 0 0 0 1vw;
+        }
+
+        .icon-search {
+          margin-top: 1.3vh;
+          margin-right: 1.3vw;
+        }
+      }
+
+      .Usericon {
+        width: 4.5vw;
+        height: 4.5vh;
+        border-radius: 4vh;
+        float: right;
+        margin-top: 1vh;
+        margin-right: 2vw;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,96 @@
+.Khohang-Container {
+  margin-left: 20px;
+  font-weight: bold;
+  color: #5b626b;
+  background-color: #f8f9fa;
+  margin-top: -20px;
+
+  .MainKhohang {
+    width: 1227px;
+    height: 160px;
+    background-color: #ffffff;
+    display: flex;
+
+    .MainTop {
+      display: flex;
+
+      .Ulsearchcn {
+        margin: 20px;
+
+        li {
+          list-style-type: none;
+          font-size: 14px;
+        }
+
+        .iptk {
+          width: 174px;
+          height: 32px;
+          margin-top: 10px;
+          outline: none;
+          border: 1px solid #ccc;
+        }
+
+        .BtnSearch {
+          width: 176px;
+          height: 33px;
+          background-color: #535eb4;
+          margin: 79px 0 0 -1153px;
+          border-radius: 3px;
+          color: #deffff;
+          outline: none;
+          border: 1px solid #ccc;
+        }
+
+        .BtnSearch:hover {
+          background-color: #3d4796;
+          color: white;
+        }
+      }
+    }
+
+    .MainBot {
+      display: flex;
+      margin-left: 20px;
+
+      .btn {
+        margin-top: 20px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 3px;
+        outline: none;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+
+  .ExportFunction {
+    width: 1227px;
+    height: 90px;
+    margin-top: 20px;
+    background-color: #ffffff;
+
+    li {
+      list-style-type: none;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    .BtnEx {
+      width: 85px;
+      height: 32px;
+      margin-left: 20px;
+      margin-top: 15px;
+      background-color: #028b82;
+      color: #deffff;
+      border-radius: 3px;
+      outline: none;
+      border: 1px solid #ccc;
+    }
+
+    .BtnEx:hover {
+      background-color: #045e58;
+      color: white;
+    }
+  }
+}
+
