@@ -30,7 +30,6 @@ import Chinhanh from "../../pages/chinhanh";
 import Donvitinh from "../../pages/donvitinh";
 import Nhomkhachhang from "../../pages/nhomkhachhang";
 
-
 const Navbar = () => {
   const [menuItem, setMenuItem] = useState(null);
   const [isOpenNavbar, setIsOpenNavbar] = useState(true);
@@ -49,7 +48,7 @@ const Navbar = () => {
       <div
         className="Navbar-Container"
         style={{
-          width: `${isOpenNavbar ? "250px" : "58px"}`,
+          width: `${isOpenNavbar ? "185px" : "58px"}`,
           padding: `${!isOpenNavbar && "12px"}`,
           minHeight: "100vh",
         }}
@@ -59,17 +58,23 @@ const Navbar = () => {
           alt=""
           className="Mainicon"
           style={{
-            marginLeft: `${isOpenNavbar ? "100px" : "14px"}`,
-            width: `${isOpenNavbar ? "48px" : "24px"}`,
-            height: `${isOpenNavbar ? "48px" : "24px"}`,
+            marginLeft: `${isOpenNavbar ? "57px" : "5px"}`,
+            width: `${isOpenNavbar ? "45px" : "24px"}`,
+            height: `${isOpenNavbar ? "45px" : "24px"}`,
           }}
         />
         <p>{isOpenNavbar && <b>PHỤ</b>}</p>
         <div>
-        <a href="#" class="waves-effect">
-                <i class="ti-home"></i>
-                <span>Trang Chủ</span>
-              </a>
+          <a href="#" className="waves-effect">
+            <i
+              class="bi bi-house"
+              style={{
+                // marginLeft: "6px",
+                marginLeft: `${isOpenNavbar ? "6px" : "-3px"}`,
+              }}
+            ></i>
+            <p className="txtHome">{isOpenNavbar ? "Trang Chủ" : ""}</p>
+          </a>
         </div>
         <p>{isOpenNavbar && <b>PHẦN CHÍNH</b>}</p>
 
@@ -86,7 +91,7 @@ const Navbar = () => {
                 }
                 style={{
                   padding: `${
-                    isOpenNavbar ? "1rem 0px 1rem 1rem" : "12px 0 12px 15px"
+                    isOpenNavbar ? "1rem 0px 1rem 1rem" : "12px 0 12px 8px"
                   }`,
                 }}
               >
@@ -128,10 +133,13 @@ const Navbar = () => {
                           {sub.name}
                         </Link>
                         <ul>
-                          {sub?.subMenu?.map((subSub) => 
+                          {sub?.subMenu?.map((subSub) =>
                             !isOpenNavbar ? null : (
                               <li key={subSub.id}>
-                                <Link to={subSub?.path} className="sub-sub-menu-item">
+                                <Link
+                                  to={subSub?.path}
+                                  className="sub-sub-menu-item"
+                                >
                                   {subSub.name}
                                 </Link>
                               </li>
@@ -151,13 +159,13 @@ const Navbar = () => {
         className="Content-Navbar"
         style={{
           width: `${
-            isOpenNavbar ? "calc(100vw - 250px)" : "calc(100vw - 58px)"
+            isOpenNavbar ? "calc(100vw - 185px)" : "calc(100vw - 58px)"
           }`,
         }}
       >
         <div className="Titlebar">
           <i
-            class="fa-solid fa-bars fa-2x mt-2"
+            class="fa-solid fa-bars fa mt-3"
             onClick={() => setIsOpenNavbar(!isOpenNavbar)}
           ></i>
           <div className="Navbar-Right">
@@ -226,7 +234,7 @@ const Navbar = () => {
             <Route path="/chinhanh" element={<Chinhanh />} />
             <Route path="/donvitinh" element={<Donvitinh />} />
             <Route path="/nhomkhachhang" element={<Nhomkhachhang />} />
-            
+
             <Route path="/nhapkhohanghoa" element={<Nhapkhohanghoa />} />
             <Route path="/xuatkhohanghoa" element={<Xuatkhohanghoa />} />
             <Route path="/chuyenkho" element={<Chuyenkho />} />
