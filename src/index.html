@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Admin trang chủ Mẹ Xíu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+  <meta content="Themesbrand" name="author">
+  <!-- App favicon -->
+  <link rel="shortcut icon" href="./assets/images/favicon.ico">
+  <link href="./assets/libs/chartist/chartist.min.css" rel="stylesheet">
+  <!-- Bootstrap Css -->
+  <link href="./assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+  <!-- Icons Css -->
+  <link href="./assets/css/icons.min.css" rel="stylesheet" type="text/css">
+  <!-- App Css-->
+  <link href="./assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+</head>
+
+<body data-sidebar="dark">
+  <!-- Begin page -->
+  <div id="layout-wrapper">
+    <header id="page-topbar">
+      <div class="navbar-header"> 
+        <div class="d-flex">
+          <!-- LOGO -->
+          <div class="navbar-brand-box">
+            <a href="index.html" class="logo logo-dark">
+              <span class="logo-sm">
+                <img src="assets/images/logo-sm.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="assets/images/logo-dark.png" alt="" height="17">
+              </span>
+            </a>
+            <a href="index.html" class="logo logo-light">
+              <span class="logo-sm">
+                <img src="assets/images/logo-sm.png" alt="" height="22">
+              </span>
+              <span class="logo-lg">
+                <img src="assets/images/logo-light.png" alt="" height="50">
+              </span>
+            </a>
+          </div>
+          <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
+            <i class="mdi mdi-menu"></i>
+          </button>
+          <div class="d-none d-sm-block">
+          </div>
+        </div>
+        <div class="d-flex">
+          <!-- App Search-->
+          <form class="app-search d-none d-lg-block">
+            <div class="position-relative">
+              <input type="text" class="form-control" placeholder="Tìm Kiếm...">
+              <span class="fa fa-search">
+              </span>
+            </div>
+          </form>
+          <div class="dropdown d-inline-block d-lg-none ms-2">
+            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="mdi mdi-magnify"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
+              <form class="p-3">
+                <div class="form-group m-0">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="submit">
+                        <i class="mdi mdi-magnify"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="dropdown d-inline-block">
+            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="rounded-circle header-profile-user" src="assets/images/users/user-4.jpg" alt="Header Avatar">
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <!-- item-->
+              <a class="dropdown-item" href="#">
+                <i class="mdi mdi-account-circle font-size-17 align-middle me-1"></i>Quản Lý Tài Khoản</a>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="mdi mdi-cog font-size-17 align-middle me-1"></i>Cài Đặt</a>
+              <div class="dropdown-divider">
+              </div>
+              <a class="dropdown-item text-danger" href="#">
+                <i class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i>Đăng Xuất</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ========== Thanh Trái ========== -->
+    <div class="vertical-menu">
+      <div data-simplebar class="h-100">
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+          <!-- Left Menu Start -->
+          <ul class="metismenu list-unstyled" id="side-menu" style="width: auto;">
+            <li class="menu-title">Phụ</li>
+            <li>
+              <a href="index.html" class="waves-effect">
+                <i class="ti-home"></i>
+                <span>Trang Chủ</span>
+              </a>
+            </li>
+            <li class="menu-title">Phần Chính</li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ti-user"></i>
+                <span>Khách Hàng</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhachhang/UI-chitietkhachhang-nhacungcap.html">Chi Tiết Khách Hàng</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhachhang/UI-nhacungcap.html">Nhà Cung Cấp</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhachhang/UI-guitinnhandenKH.html">Gửi tin nhắn đến KH</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhachhang/UI-nhacnhosinhnhatKH.html">Nhắc Nhở Sinh Nhật Khách Hàng</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhachhang/UI-tiepnhansulyyeucauKH.html">Tiếp nhận sử Lý Yêu Cầu Khách Hàng</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhachhang/UI-phannhomKH.html">Phân Nhóm Khách Hàng</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ion ion-md-apps"></i>
+                <span>Hàng Hoá</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uidanhmuc/UI-danhmucSP.html">Sản Phẩm</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uidanhmuc/UI-danhmucloaiSP.html">Loại Sản Phẩm</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uidanhmuc/UI-danhmucphanloaiSP.html">Phân Loại Sản Phẩm</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uidanhmuc/UI-dnahmuchangSX.html">Hãng Sản Xuất</a>
+                </li>
+                <li>
+
+                </li>
+                
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uidanhmuc/UI-danhmucdonvitinh.html">Đơn Vị Tính</a>
+                </li>
+              </ul>
+            </li>
+            <!-- <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ti-package"></i>
+                <span>Hàng Hoá</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false">
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uihanghoa/UI-danhsachhanghoa.html">Danh Sách Hàng Hoá</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uihanghoa/UI-dieuchinhgia.html">Điều Chỉnh giá</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uihanghoa/UI-intemmavach.html">In Tem Mã Vạch</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uihanghoa/UI-banbaogia.html">Bản Báo Giá</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uihanghoa/UI-tanggiatheonhomhanghoa.html">Tăng Giá Theo Nhóm Hàng Hoá</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uihanghoa/UI-lichsusanphamdaban.html">Lịch Sử Sản Phẩm Đã Bán</a>
+                </li>
+                <li>
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uihanghoa/UI-kiemtrasoluonghanghoadaban.html">Kiểm Tra Số Lượng Hàng Đã Bán</a>
+                </li>
+              </ul>
+            </li> -->
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ti-dropbox"></i>
+                <span>Kho Hàng</span>
+              </a>
+
+              <!-- Nhập Xuất kho Hàng Hoá -->
+
+              <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                <li>
+                    
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhohang/UI-tonkho.html">Tồn Kho</a>
+                </li>
+                <li>
+                    
+                  <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhohang/UI-danhmuckhohang.html">Kho Hàng</a>
+                </li>
+                <li>
+                  <a href="javascript: void(0);" class="has-arrow waves-effect">
+                   
+                    <span>Nhập kho hàng hóa</span>
+                  </a>
+                  <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                    <li>
+                      <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhohang/UI-phieunhap.html">Phiếu Nhập</a>
+                    </li>
+                    <li>
+                      <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhohang/UI-phieunhapchitiet.html">Phiếu Nhập Chi Tiết</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    
+                    <span>Xuất kho hàng hóa</span>
+                  </a>
+                  <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                    <li>
+                      <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhohang/UI-phieuxuat.html">Phiếu Xuất</a>
+                    </li>
+                    <li>
+                      <a href="/Src/MeXiu.WebsiteAdmin/MeXiu.WebsiteAdmin/src/uikhohang/UI-phieuxuatchitiet.html">Phiếu Xuất Chi Tiết</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+          
+              <!-- Tồn Kho -->
+              
+                
+                  
+                  
+                
+                  
+                  
+                </li>
+                
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ti-receipt"></i>
+                <span>Hoá Đơn</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                <li>
+                  <a href="//">Hoá Đơn Vừa Thanh Toán</a>
+                </li>
+                <li>
+                  <a href="//">Thống Kê Hoá Đơn VAT</a>
+                </li>
+                <li>
+                  <a href="//">Thống Kê Hoá Đơn Đặt Hàng</a>
+                </li>
+                <li>
+                  <a href="//">Kiểm Tra Hoá Đơn Trùng</a>
+                </li>
+                <li>
+                  <a href="//">Lịch Sử Đơn Tạm</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ti-clipboard"></i>
+                <span>Công Nợ</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                <li>
+                  <a href="//">Công Nợ Phải Thu Của Khách Hàng</a>
+                </li>
+                <li>
+                  <a href="//">Công Nợ Phải Trả Cho Nhà Cung Cấp</a>
+                </li>
+                <li>
+                  <a href="//">Công Nợ Đầu Kỳ</a>
+                </li>
+                <li>
+                  <a href="//">Quản Lý Đơn Hàng Nhập Công Nợ</a>
+                </li>
+                <li>
+                  <a href="//">Quản Lý Mượn Hàng</a>
+                </li>
+                <li>
+                  <a href="//">Ghi Chú</a>
+                </li>
+                <li>
+                  <a href="//">Duyệt Phiếu Chi</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ti-agenda"></i>
+                <span>Thu Chi</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                <li>
+                  <a href="//">Thêm Thu Chi Và Báo Cáo Tổng Kết</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ti-bar-chart"></i>
+                <span>Báo Cáo</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                <li>
+                  <a href="//">Báo Cáo Bán Hàng</a>
+                </li>
+                <li>
+                  <a href="//">Báo Cáo Điểm</a>
+                </li>
+                <li>
+                  <a href="//">Báo Cáo Số Tiền Tặng</a>
+                </li>
+                <li>
+                  <a href="//">Báo Cao Theo Nhóm Hàng</a>
+                </li>
+                <li>
+                  <a href="//">Lịch Sử Khách Hàng</a>
+                </li>
+                <li>
+                  <a href="//">Lịch Sử Sản Phẩm</a>
+                </li>
+                <li>
+                  <a href="//">Kiểm Tra Bán Hàng Thực Tế</a>
+                </li>
+                <li>
+                  <a href="//">Sổ Quỷ Tiền Mặt</a>
+                </li>
+                <li>
+                  <a href="//">Khách Hàng Đạt Tóp Tháng</a>
+                </li>
+                <li>
+                  <a href="//">Khách Hàng Tóp Năm</a>
+                </li>
+                <li>
+                  <a href="//">Báo Cáo Tin Nhắn ZaLo</a>
+                </li>
+                <li>
+                  <a href="//">Báo Cáo Mã Dự Thưởng</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ti-credit-card"></i>
+                <span>Chấm Công</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                <li>
+                  <a href="//">Chấm Công Nhân Viên</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ti-widget-alt"></i>
+                <span>QR Code</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                <li>
+                  <a href="//">Khai Báo Y Tế</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ti-panel"></i>
+                <span>Cài Đặt</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false" style="width: auto;">
+                <li>
+                  <a href="//">Cài Đặt Hoá Đơn</a>
+                </li>
+                <li>
+                  <a href="//">Đổi Mật Khẩu</a>
+                </li>
+                <li>
+                  <a href="//">Nhân Viên</a>
+                </li>
+                <li>
+                  <a href="//">Phân Quyền</a>
+                </li>
+                <li>
+                  <a href="//">Ngày Bán Hàng</a>
+                </li>
+                <li>
+                  <a href="//">Cập Nhập Lệnh</a>
+                </li>
+                <li>
+                  <a href="//">Cân Tồn Kho</a>
+                </li>
+                <li>
+                  <a href="//">Tạo Thêm Kho</a>
+                </li>
+                <li>
+                  <a href="//">Reset Phần Mềm</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- Sidebar -->
+      </div>
+    </div>
+    <!-- Left Sidebar End -->
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+      <div class="page-content">
+        <div class="container-fluid">
+          <!-- bắt đầu tiêu đề trang -->
+          <div class="col-md-4">
+            <div class="float-end d-none d-md-block">
+              <div class="dropdown">
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a class="dropdown-item" href="#">Hành động</a>
+                  <a class="dropdown-item" href="#">Hành động khác</a>
+                  <a class="dropdown-item" href="#">Cái gì đó khác ở đây</a>
+                  <div class="dropdown-divider">
+                  </div>
+                  <a class="dropdown-item" href="#">Liên kết tách biệt</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- kết thúc tiêu đề trang -->
+          <!-- Thống kê báo cáo tại trang chủ -->
+          <div class="row">
+            <div class="col-xl-9">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title mb-4">Thu Nhập Hằng Tháng</h4>
+                  <div class="row">
+                    <div class="col-lg-7">
+                      <div>
+                        <div id="chart-with-area" class="ct-chart earning ct-golden-section">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="text-center">
+                            <p class="text-muted mb-4">Tháng này</p>
+                            <h3>34,252 VNĐ</h3>
+                            <span class="peity-donut" data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }' data-width="72" data-height="72">4/5</span>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="text-center">
+                            <p class="text-muted mb-4">Tháng trước</p>
+                            <h3>36,253 VNĐ</h3>
+                            <span class="peity-donut" data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }' data-width="72" data-height="72">3/5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- kết thúc hàng -->
+                </div>
+              </div>
+              <!-- end card -->
+            </div>
+            <!-- container-fluid -->
+          </div>
+          <!-- End Page-content -->
+          <footer class="footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  <p class="mb-0">©
+                    <script>
+  document.write(new Date().getFullYear())
+                    </script>Web Này Được Tạo Bởi Team Lâm
+                    <i class="mdi mdi-heart text-danger"></i>Số điện thoại liên hệ nếu gặp lỗi 0123456</p>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+        <!-- end main content-->
+      </div>
+      <!-- END layout-wrapper -->
+   
+      </div>
+      <!-- /Right-bar -->
+      <!-- Right bar overlay-->
+      <div class="rightbar-overlay">
+      </div>
+      <!-- JAVASCRIPT -->
+      <script src="assets/libs/jquery/jquery.min.js"></script>
+      <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+      <script src="assets/libs/simplebar/simplebar.min.js"></script>
+      <script src="assets/libs/node-waves/waves.min.js"></script>
+      <!-- Peity chart-->
+      <script src="assets/libs/peity/jquery.peity.min.js"></script>
+      <!-- Plugin Js-->
+      <script src="assets/libs/chartist/chartist.min.js"></script>
+      <script src="assets/libs/chartist-plugin-tooltips/chartist-plugin-tooltip.min.js"></script>
+      <script src="assets/js/pages/dashboard.init.js"></script>
+      <script src="assets/js/app.js"></script>
+</body>
+
+</html>
