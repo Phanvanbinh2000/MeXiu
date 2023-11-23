@@ -66,7 +66,7 @@ const Navbar = () => {
         />
         <p>{isOpenNavbar && <b>PHỤ</b>}</p>
         <div>
-        <a href="index.html" class="waves-effect">
+        <a href="#" class="waves-effect">
                 <i class="ti-home"></i>
                 <span>Trang Chủ</span>
               </a>
