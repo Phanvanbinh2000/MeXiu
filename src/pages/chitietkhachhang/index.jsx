@@ -46,7 +46,7 @@ const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreE
   );
 }
 const cellEditProp = {
-  mode: 'click', // Chế độ chỉnh sửa khi nhấp vào ô
+  mode: 'dbclick', // Chế độ chỉnh sửa khi nhấp vào ô
   blurToSave: true, // Lưu khi bỏ focus khỏi ô đang chỉnh sửa
 };
 
