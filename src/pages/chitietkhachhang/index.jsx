@@ -4,6 +4,7 @@ import "./styles.scss";
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+//1
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 // import BootstrapTable from 'react-bootstrap-table-next';
@@ -12,14 +13,46 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 // Định nghĩa hàm actionFormat
 const actionFormat = (cell, row) => {
-  // Thực hiện các thao tác format tại đây và trả về kết quả
-  // Đảm bảo rằng các thao tác được thực hiện một cách hợp lý với bản
-  // Thêm thao tác vào đây
-  let editAction = `<a className="btn btn-secondary btn-sm edit" title="Edit" onClick={this.editData(${row.id})}><i class="fas fa-pencil-alt"></i></a>`; // ví dụ về thao tác sửa
-  let deleteAction = `<a className="btn btn-danger btn-sm delete" title="Delete" onClick={this.deleteData(${row.id})}><i class="fas fa-trash-alt"></i></a>`; // ví dụ về thao tác xoá
-  return editAction + " " + deleteAction;
+  // let editAction = `<a className="btn btn-secondary btn-sm edit" title="Edit" onClick={this.editData(${row.id})}><i class="fas fa-pencil-alt"></i></a>`; // ví dụ về thao tác sửa
+  // let deleteAction = `<a className="btn btn-danger btn-sm delete" title="Delete" onClick={this.deleteData(${row.id})}><i class="fas fa-trash-alt"></i></a>`; // ví dụ về thao tác xoá
+  // return editAction + " " + deleteAction;
+  
 };
 
+const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreEditable) => {
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // Logic to handle form submission goes here
+    onSave(event);
+  };
+
+  return (
+    <Modal show={true} onHide={onModalClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Thêm Mới Khách Hàng</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <form onSubmit={handleFormSubmit}>
+          Mã KH: <input type="text" id="id" className="form-control" /><br />
+          Tên KH: <input type="text" id="name" className="form-control" /><br />
+          Địa Chỉ: <input type="text" id="address" className="form-control" /><br />
+          SĐT: <input type="text" id="phone" className="form-control" /><br />
+          Năm Sinh: <input type="date" id="birthYear" className="form-control" /><br />
+          Ngày Mua: <input type="date" id="purchaseDate" className="form-control" /><br />
+          <button type="submit" className="btn btn-success">Lưu</button>
+        </form>
+      </Modal.Body>
+    </Modal>
+  );
+}
+const cellEditProp = {
+  mode: 'click', // Chế độ chỉnh sửa khi nhấp vào ô
+  blurToSave: true, // Lưu khi bỏ focus khỏi ô đang chỉnh sửa
+};
+
+const options = {
+  insertModal: createCustomModal
+};
 
 const Chitietkhachhang = () => {
 
@@ -43,19 +76,21 @@ const Chitietkhachhang = () => {
   const toggleEditModal = () => {
     setEditModal(!editModal);
   };
+//1
   
-  const handleCheckAll = () => {
-    const checkboxes = document.querySelectorAll('.row-check');
-    checkboxes.forEach((checkbox) => {
-      checkbox.checked = true;
-    });
-  };
+  
+  // const handleCheckAll = () => {
+  //   const checkboxes = document.querySelectorAll('.row-check');
+  //   checkboxes.forEach((checkbox) => {
+  //     checkbox.checked = true;
+  //   });
+  // };
 
-  const handleCheck = () => {
-    const totalRows = document.querySelectorAll('.row-check').length;
-    const checkedRows = document.querySelectorAll('.row-check:checked').length;
-    document.getElementById('checkAll').checked = totalRows === checkedRows;
-  };
+  // const handleCheck = () => {
+  //   const totalRows = document.querySelectorAll('.row-check').length;
+  //   const checkedRows = document.querySelectorAll('.row-check:checked').length;
+  //   document.getElementById('checkAll').checked = totalRows === checkedRows;
+  // };
 
   const handleCheckBirthdays = () => {
     const today = new Date();
@@ -142,9 +177,9 @@ const Chitietkhachhang = () => {
 
 
                   <div className="col-md-2 mb-3">
-                    <Button variant="success" onClick={toggleModal}>
+                    {/* <Button variant="success" onClick={toggleModal}>
                       Thêm
-                    </Button>
+                    </Button> */}
                   </div>
                   <div className="col-md-2 mb-3">
                     <button id="checkBirthdays" type="button" className="btn btn-primary" onClick={handleCheckBirthdays}>Kiểm tra
@@ -199,9 +234,11 @@ const Chitietkhachhang = () => {
                     condensed
                     pagination
                     insertRow={true}
+                    cellEdit={cellEditProp}
                     deleteRow
                     search
                     tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}
+                    options={options}
                   >
                     <TableHeaderColumn dataField="id" isKey dataAlign="center" dataSort>Mã KH</TableHeaderColumn>
                     <TableHeaderColumn dataField="name" dataAlign="center" dataSort>Tên KH</TableHeaderColumn>
@@ -209,7 +246,7 @@ const Chitietkhachhang = () => {
                     <TableHeaderColumn dataField="phone" dataAlign="center" dataSort>SĐT</TableHeaderColumn>
                     <TableHeaderColumn dataField="birthYear" dataAlign="center" dataSort>Năm Sinh</TableHeaderColumn>
                     <TableHeaderColumn dataField="purchaseDate" dataAlign="center" dataSort>Ngày Mua</TableHeaderColumn>
-                    <TableHeaderColumn dataField="action" dataAlign="center" dataFormat={actionFormat}>Thao Tác</TableHeaderColumn>
+                    
                   </BootstrapTable>
 
                 </div>
