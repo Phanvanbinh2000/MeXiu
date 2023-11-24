@@ -12,7 +12,13 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 // Định nghĩa hàm actionFormat
 const actionFormat = (cell, row) => {
   // Thực hiện các thao tác format tại đây và trả về kết quả
+  // Đảm bảo rằng các thao tác được thực hiện một cách hợp lý với bản
+  // Thêm thao tác vào đây
+  let editAction = `<a className="btn btn-secondary btn-sm edit" title="Edit" onClick={this.editData(${row.id})}><i class="fas fa-pencil-alt"></i></a>`; // ví dụ về thao tác sửa
+  let deleteAction = `<a className="btn btn-danger btn-sm delete" title="Delete" onClick={this.deleteData(${row.id})}><i class="fas fa-trash-alt"></i></a>`; // ví dụ về thao tác xoá
+  return editAction + " " + deleteAction;
 };
+
 
 const Chitietkhachhang = () => {
   var selectRowProp = {
@@ -285,18 +291,18 @@ const Chitietkhachhang = () => {
                     hover
                     condensed
                     pagination
-                    insertRow
+                    insertRow={true}
                     deleteRow
                     search
                     tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}
                   >
-                    <TableHeaderColumn dataField="id" isKey dataAlign="right" dataSort>Mã KH</TableHeaderColumn>
-                    <TableHeaderColumn dataField="name" dataSort>Tên KH</TableHeaderColumn>
-                    <TableHeaderColumn dataField="address" dataSort>Địa Chỉ</TableHeaderColumn>
-                    <TableHeaderColumn dataField="phone" dataSort>SĐT</TableHeaderColumn>
-                    <TableHeaderColumn dataField="birthYear" dataSort>Năm Sinh</TableHeaderColumn>
-                    <TableHeaderColumn dataField="purchaseDate" dataSort>Ngày Mua</TableHeaderColumn>
-                    <TableHeaderColumn dataField="action" dataFormat={actionFormat}>Thao Tác</TableHeaderColumn>
+                    <TableHeaderColumn dataField="id" isKey dataAlign="center" dataSort>Mã KH</TableHeaderColumn>
+                    <TableHeaderColumn dataField="name" dataAlign="center" dataSort>Tên KH</TableHeaderColumn>
+                    <TableHeaderColumn dataField="address" dataAlign="center" dataSort>Địa Chỉ</TableHeaderColumn>
+                    <TableHeaderColumn dataField="phone" dataAlign="center" dataSort>SĐT</TableHeaderColumn>
+                    <TableHeaderColumn dataField="birthYear" dataAlign="center" dataSort>Năm Sinh</TableHeaderColumn>
+                    <TableHeaderColumn dataField="purchaseDate" dataAlign="center" dataSort>Ngày Mua</TableHeaderColumn>
+                    <TableHeaderColumn dataField="action" dataAlign="center" dataFormat={actionFormat}>Thao Tác</TableHeaderColumn>
                   </BootstrapTable>
 
                 </div>
