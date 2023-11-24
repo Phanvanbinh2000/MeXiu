@@ -19,10 +19,26 @@ const actionFormat = (cell, row) => {
   
 };
 
+let lastId = products.length > 0 ? parseInt(products[products.length - 1].id) : 0;
+
 const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreEditable) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // Logic to handle form submission goes here
+    // Tự sinh mã KH
+    lastId++;
+    // Lưu dữ liệu ảo và hiển thị trên lưới dữ liệu
+    const newCustomer = {
+      id: lastId.toString(),
+      name: document.getElementById("tenKhachHang").value,
+      address: document.getElementById("maNhomKhachHang").value,
+      phone: document.getElementById("tenNhomKhachHang").value,
+      birthYear: document.getElementById("soDienThoaiKhachHang").value,
+      purchaseDate: document.getElementById("ngaySinhTu").value
+    };
+    products.push(newCustomer);
+    // Lưu dữ liệu vào localStorage
+    localStorage.setItem('products', JSON.stringify(products));
     onSave(event);
   };
 
@@ -33,12 +49,13 @@ const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreE
       </Modal.Header>
       <Modal.Body>
         <form onSubmit={handleFormSubmit}>
-          Mã KH: <input type="text" id="id" className="form-control" /><br />
-          Tên KH: <input type="text" id="name" className="form-control" /><br />
-          Địa Chỉ: <input type="text" id="address" className="form-control" /><br />
-          SĐT: <input type="text" id="phone" className="form-control" /><br />
-          Năm Sinh: <input type="date" id="birthYear" className="form-control" /><br />
-          Ngày Mua: <input type="date" id="purchaseDate" className="form-control" /><br />
+          Mã KH: <input type="text" id="maKhachHang" className="form-control" value={lastId} readOnly /><br />
+          Tên KH: <input type="text" id="tenKhachHang" className="form-control" /><br />
+          Mã Nhóm KH: <input type="text" id="maNhomKhachHang" className="form-control" /><br />
+          Tên Nhóm KH: <input type="text" id="tenNhomKhachHang" className="form-control" /><br />
+          SĐT: <input type="text" id="soDienThoaiKhachHang" className="form-control" /><br />
+          Ngày Sinh Từ: <input type="date" id="ngaySinhTu" className="form-control" /><br />
+          Ngày Sinh Đến: <input type="date" id="ngaySinhDen" className="form-control" /><br />
           <button type="submit" className="btn btn-success">Lưu</button>
         </form>
       </Modal.Body>
@@ -56,10 +73,7 @@ const options = {
 
 const Chitietkhachhang = () => {
 
-   // Tạo dữ liệu mẫu
-  
 
-  
   var selectRowProp = {
     mode: "checkbox",
     clickToSelect: true,
