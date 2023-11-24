@@ -40,7 +40,7 @@ export const menu = [
   },
   {
     id: "2",
-    name: "Hàng Hoá 2",
+    name: "Hàng Hoá",
     path: "/hanghoa2",
     icon: <i class="bi bi-card-list"></i>,
     subMenu: [
