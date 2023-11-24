@@ -158,14 +158,12 @@ const Navbar = () => {
       <div
         className="Content-Navbar"
         style={{
-          width: `${
-            isOpenNavbar ? "calc(100vw - 185px)" : "calc(100vw - 58px)"
-          }`,
+          width: isOpenNavbar ? "calc(100vw - 185px)" : "calc(100vw - 58px)",
         }}
       >
         <div className="Titlebar">
           <i
-            class="fa-solid fa-bars fa mt-3"
+            className="fa-solid fa-bars fa mt-3"
             onClick={() => setIsOpenNavbar(!isOpenNavbar)}
           ></i>
           <div className="Navbar-Right">
@@ -175,7 +173,7 @@ const Navbar = () => {
                 className="Search"
                 placeholder="Tìm kiếm ...."
               />
-              <i class="fa-solid fa-magnifying-glass icon-search"></i>
+              <i className="fa-solid fa-magnifying-glass icon-search"></i>
             </div>
             <div>
               <Button
@@ -197,14 +195,14 @@ const Navbar = () => {
                 }}
               >
                 <MenuItem onClick={handleClose}>
-                  <i class="bi bi-person-circle "></i> <p>Quản Lý Tài Khoản</p>
+                  <i className="bi bi-person-circle "></i> <p>Quản Lý Tài Khoản</p>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                  <i class="bi bi-gear"></i> <p>Cài Đặt</p>
+                  <i className="bi bi-gear"></i> <p>Cài Đặt</p>
                 </MenuItem>
                 <hr />
                 <MenuItem onClick={handleClose}>
-                  <i class="bi bi-box-arrow-left"></i>
+                  <i className="bi bi-box-arrow-left"></i>
                   <p>Đăng Xuất</p>
                 </MenuItem>
               </Menu>
@@ -213,7 +211,7 @@ const Navbar = () => {
         </div>
         <div
           style={{
-            width: "100%",
+            width: "98",
             padding: "22px 0",
           }}
         >

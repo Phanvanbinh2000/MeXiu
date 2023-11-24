@@ -3,9 +3,24 @@ import "./styles.scss";
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+// import BootstrapTable from 'react-bootstrap-table-next';
 
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+
+// Định nghĩa hàm actionFormat
+const actionFormat = (cell, row) => {
+  // Thực hiện các thao tác format tại đây và trả về kết quả
+};
 
 const Chitietkhachhang = () => {
+  var selectRowProp = {
+    mode: "checkbox",
+    clickToSelect: true,
+    bgColor: "rgb(238, 193, 213)" 
+  };
+  
   const [showModal, setShowModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
 
@@ -51,7 +66,108 @@ const Chitietkhachhang = () => {
       alert("Không có sinh nhật của Khách Hàng trong tháng này.");
     }
   };
-  
+
+  // Tạo dữ liệu mẫu
+  const products = [
+    {
+      id: '1',
+      name: 'Nguyễn Văn A',
+      address: 'Hà Nội',
+      phone: '0123456789',
+      birthYear: '1990',
+      purchaseDate: '2022-01-01'
+    },
+    {
+      id: '2',
+      name: 'Trần Văn B',
+      address: 'Hồ Chí Minh',
+      phone: '0987654321',
+      birthYear: '1991',
+      purchaseDate: '2022-02-01'
+    },
+    {
+      id: '3',
+      name: 'Lê Văn C',
+      address: 'Đà Nẵng',
+      phone: '0123456789',
+      birthYear: '1992',
+      purchaseDate: '2022-03-01'
+    },
+    {
+      id: '4',
+      name: 'Phạm Văn D',
+      address: 'Hải Phòng',
+      phone: '0987654321',
+      birthYear: '1993',
+      purchaseDate: '2022-04-01'
+    },
+    {
+      id: '5',
+      name: 'Nguyễn Văn E',
+      address: 'Cần Thơ',
+      phone: '0123456789',
+      birthYear: '1994',
+      purchaseDate: '2022-05-01'
+    },
+    {
+      id: '6',
+      name: 'Trần Văn F',
+      address: 'Bình Dương',
+      phone: '0987654321',
+      birthYear: '1995',
+      purchaseDate: '2022-06-01'
+    },
+    {
+      id: '7',
+      name: 'Lê Văn G',
+      address: 'Nghệ An',
+      phone: '0123456789',
+      birthYear: '1996',
+      purchaseDate: '2022-07-01'
+    },
+    {
+      id: '8',
+      name: 'Phạm Văn H',
+      address: 'Hà Tĩnh',
+      phone: '0987654321',
+      birthYear: '1997',
+      purchaseDate: '2022-08-01'
+    },
+    {
+      id: '9',
+      name: 'Nguyễn Văn I',
+      address: 'Quảng Bình',
+      phone: '0123456789',
+      birthYear: '1998',
+      purchaseDate: '2022-09-01'
+    },
+    {
+      id: '10',
+      name: 'Trần Văn J',
+      address: 'Quảng Trị',
+      phone: '0987654321',
+      birthYear: '1999',
+      purchaseDate: '2022-10-01'
+    },
+    {
+      id: '11',
+      name: 'Lê Văn K',
+      address: 'Thừa Thiên Huế',
+      phone: '0123456789',
+      birthYear: '2000',
+      purchaseDate: '2022-11-01'
+    },
+    {
+      id: '12',
+      name: 'Phạm Văn L',
+      address: 'Đà Nẵng',
+      phone: '0987654321',
+      birthYear: '2001',
+      purchaseDate: '2022-12-01'
+    },
+    // Thêm dữ liệu mẫu tại đây
+  ];
+
   return (
     <div className="main-content">
 
@@ -162,40 +278,26 @@ const Chitietkhachhang = () => {
                   </Modal>
                   {/* <!-- Kết Thúc font hiển thị popup sửa --> */}
 
-                  <table id="datatable-buttons"
-                    className="table table-striped table-bordered dt-responsive nowrap"
-                    style={{borderCollapse: 'collapse', borderSpacing: 0, width: '100%'}}>
-                    <thead>
-                      <tr>
-                        <th><input type="checkbox" id="checkAll" onClick={handleCheckAll} /></th>
-                        <th>Mã KH</th>
-                        <th>Tên KH</th>
-                        <th>Địa Chỉ</th>
-                        <th>SĐT</th>
-                        <th>Năm Sinh</th>
-                        <th>Ngày Mua</th>
-                        <th>Thao Tác</th>
-                      </tr>
-                    </thead>
-
-
-                    <tbody>
-                      <tr>
-                        <td><input type="checkbox" className="row-check" id="rowCheck1" onClick={handleCheck} /></td>
-                        <td>KH_001</td>
-                        <td>Phan Văn Bình</td>
-                        <td>Đà Nẵng</td>
-                        <td>0123456789</td>
-                        <td>2011/11/25</td>
-                        <td>450 VNĐ</td>
-                        <td>
-                          <button type="button" className="btn btn-success btn-sm" onClick={toggleEditModal}>Sửa</button>
-                          <button type="button" className="btn btn-danger btn-sm">Xóa</button>
-                        </td>
-                      </tr>
-                      {/* <!-- Repeat the above <tr> block for each row of data --> */}
-                    </tbody>
-                  </table>
+                  <BootstrapTable
+                    data={products}
+                    selectRow={selectRowProp}
+                    striped
+                    hover
+                    condensed
+                    pagination
+                    insertRow
+                    deleteRow
+                    search
+                    tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}
+                  >
+                    <TableHeaderColumn dataField="id" isKey dataAlign="right" dataSort>Mã KH</TableHeaderColumn>
+                    <TableHeaderColumn dataField="name" dataSort>Tên KH</TableHeaderColumn>
+                    <TableHeaderColumn dataField="address" dataSort>Địa Chỉ</TableHeaderColumn>
+                    <TableHeaderColumn dataField="phone" dataSort>SĐT</TableHeaderColumn>
+                    <TableHeaderColumn dataField="birthYear" dataSort>Năm Sinh</TableHeaderColumn>
+                    <TableHeaderColumn dataField="purchaseDate" dataSort>Ngày Mua</TableHeaderColumn>
+                    <TableHeaderColumn dataField="action" dataFormat={actionFormat}>Thao Tác</TableHeaderColumn>
+                  </BootstrapTable>
 
                 </div>
               </div>
