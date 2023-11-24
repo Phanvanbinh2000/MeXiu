@@ -21,60 +21,9 @@ const actionFormat = (cell, row) => {
 
 
 const Chitietkhachhang = () => {
-  var selectRowProp = {
-    mode: "checkbox",
-    clickToSelect: true,
-    bgColor: "rgb(238, 193, 213)" 
-  };
-  
-  const [showModal, setShowModal] = useState(false);
-  const [editModal, setEditModal] = useState(false);
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
-
-  const toggleEditModal = () => {
-    setEditModal(!editModal);
-  };
-  
-  const handleCheckAll = () => {
-    const checkboxes = document.querySelectorAll('.row-check');
-    checkboxes.forEach((checkbox) => {
-      checkbox.checked = true;
-    });
-  };
-
-  const handleCheck = () => {
-    const totalRows = document.querySelectorAll('.row-check').length;
-    const checkedRows = document.querySelectorAll('.row-check:checked').length;
-    document.getElementById('checkAll').checked = totalRows === checkedRows;
-  };
-
-  const handleCheckBirthdays = () => {
-    const today = new Date();
-    const currentMonth = today.getMonth() + 1;
-    let hasBirthday = false;
-    let birthdayName = '';
-    const rows = document.querySelectorAll('tbody tr');
-    rows.forEach((row) => {
-      const dob = row.querySelector('td:nth-child(6)').textContent;
-      const dobMonth = new Date(dob).getMonth() + 1;
-      if (dobMonth === currentMonth) {
-        hasBirthday = true;
-        birthdayName = row.querySelector('td:nth-child(3)').textContent;
-        return false; // break the loop
-      }
-    });
-    if (hasBirthday) {
-      alert(`Tháng này có sinh nhật của Khách Hàng ${birthdayName}!`);
-    } else {
-      alert("Không có sinh nhật của Khách Hàng trong tháng này.");
-    }
-  };
-
-  // Tạo dữ liệu mẫu
-  const products = [
+   // Tạo dữ liệu mẫu
+   const products = [
     {
       id: '1',
       name: 'Nguyễn Văn A',
@@ -173,6 +122,60 @@ const Chitietkhachhang = () => {
     },
     // Thêm dữ liệu mẫu tại đây
   ];
+  
+  var selectRowProp = {
+    mode: "checkbox",
+    clickToSelect: true,
+    bgColor: "rgb(238, 193, 213)" 
+  };
+  
+  const [showModal, setShowModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const toggleEditModal = () => {
+    setEditModal(!editModal);
+  };
+  
+  const handleCheckAll = () => {
+    const checkboxes = document.querySelectorAll('.row-check');
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = true;
+    });
+  };
+
+  const handleCheck = () => {
+    const totalRows = document.querySelectorAll('.row-check').length;
+    const checkedRows = document.querySelectorAll('.row-check:checked').length;
+    document.getElementById('checkAll').checked = totalRows === checkedRows;
+  };
+
+  const handleCheckBirthdays = () => {
+    const today = new Date();
+    const currentMonth = today.getMonth() + 1;
+    let hasBirthday = false;
+    let birthdayName = '';
+    const rows = document.querySelectorAll('tbody tr');
+    rows.forEach((row) => {
+      const dob = row.querySelector('td:nth-child(6)').textContent;
+      const dobMonth = new Date(dob).getMonth() + 1;
+      if (dobMonth === currentMonth) {
+        hasBirthday = true;
+        birthdayName = row.querySelector('td:nth-child(3)').textContent;
+        return false; // break the loop
+      }
+    });
+    if (hasBirthday) {
+      alert(`Tháng này có sinh nhật của Khách Hàng ${birthdayName}!`);
+    } else {
+      alert("Không có sinh nhật của Khách Hàng trong tháng này.");
+    }
+  };
+
+ 
 
   return (
     <div className="main-content">
