@@ -9,7 +9,7 @@
   display: flex;
 
   .Content-Navbar {
-    width: calc(100vw - 185px);
+    width: calc(100vw - 220px);
     height: auto;
 
     .bi-person-circle {
@@ -79,17 +79,18 @@
           width: 87%;
 
           .Sub-Menu {
-            left: 0;
+            margin-left: -12px;
+            width: 200px;
             text-decoration: none;
             list-style-type: none;
             overflow: hidden;
-            margin-left: 1.5vw;
 
             .sub-menu-item {
               z-index: 1 !important;
-              margin: 1.5vh 0;
+              margin: 0.5vh 0;
               display: block;
               text-decoration: none;
+              padding-right: 10px;
               &:hover {
                 color: rgb(198, 195, 195);
               }
@@ -150,10 +151,14 @@
       .Usericon {
         width: 35px;
         height: 33px;
-        border-radius: 4vh;
+        border-radius: 25px;
         float: right;
-        margin-top: 2px;
-        margin-right: 2vw;
+        margin-top: 3px;
+        margin-right: 20px;
+      }
+
+      .p1{
+        margin-top: 4px;
       }
     }
   }

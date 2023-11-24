@@ -3,13 +3,17 @@ import "./styles.scss";
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-
+import ReactPaginate from "react-paginate";
 
 const Loaisanpham = () => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
+  };
+
+  const handlePageClick = () => {
+
   };
 
   return (
@@ -112,6 +116,23 @@ const Loaisanpham = () => {
                       </tbody>
                     </table>
                     {/* <!-- Kết Thúc Lưới Dữ Liệu --> */}
+                    <ReactPaginate
+                    breakLabel="..."
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={5}
+                    nextLabel="next >"
+                    pageCount={10}
+                    previousLabel="< previous"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                  />
                   </div>
                 </div>
               </div>

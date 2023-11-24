@@ -48,7 +48,7 @@ const Navbar = () => {
       <div
         className="Navbar-Container"
         style={{
-          width: `${isOpenNavbar ? "185px" : "58px"}`,
+          width: `${isOpenNavbar ? "220px" : "58px"}`,
           padding: `${!isOpenNavbar && "12px"}`,
           minHeight: "100vh",
         }}
@@ -58,7 +58,7 @@ const Navbar = () => {
           alt=""
           className="Mainicon"
           style={{
-            marginLeft: `${isOpenNavbar ? "57px" : "5px"}`,
+            marginLeft: `${isOpenNavbar ? "85px" : "5px"}`,
             width: `${isOpenNavbar ? "45px" : "24px"}`,
             height: `${isOpenNavbar ? "45px" : "24px"}`,
           }}
@@ -70,7 +70,7 @@ const Navbar = () => {
               class="bi bi-house"
               style={{
                 // marginLeft: "6px",
-                marginLeft: `${isOpenNavbar ? "6px" : "-3px"}`,
+                marginLeft: `${isOpenNavbar ? "8px" : "-2px"}`,
               }}
             ></i>
             <p className="txtHome">{isOpenNavbar ? "Trang Chủ" : ""}</p>
@@ -132,7 +132,7 @@ const Navbar = () => {
                         <Link to={sub?.path} className="sub-menu-item">
                           {sub.name}
                         </Link>
-                        <ul>
+                        <ul className="Sub-Menu">
                           {sub?.subMenu?.map((subSub) =>
                             !isOpenNavbar ? null : (
                               <li key={subSub.id}>
@@ -158,12 +158,14 @@ const Navbar = () => {
       <div
         className="Content-Navbar"
         style={{
-          width: isOpenNavbar ? "calc(100vw - 185px)" : "calc(100vw - 58px)",
+          width: `${
+            isOpenNavbar ? "calc(100vw - 220px)" : "calc(100vw - 58px)"
+          }`,
         }}
       >
         <div className="Titlebar">
           <i
-            className="fa-solid fa-bars fa mt-3"
+            class="fa-solid fa-bars fa mt-3"
             onClick={() => setIsOpenNavbar(!isOpenNavbar)}
           ></i>
           <div className="Navbar-Right">
@@ -173,7 +175,7 @@ const Navbar = () => {
                 className="Search"
                 placeholder="Tìm kiếm ...."
               />
-              <i className="fa-solid fa-magnifying-glass icon-search"></i>
+              <i class="fa-solid fa-magnifying-glass icon-search"></i>
             </div>
             <div>
               <Button
@@ -195,15 +197,15 @@ const Navbar = () => {
                 }}
               >
                 <MenuItem onClick={handleClose}>
-                  <i className="bi bi-person-circle "></i> <p>Quản Lý Tài Khoản</p>
+                  <i class="bi bi-person-circle "></i> <span>Quản Lý Tài Khoản</span>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                  <i className="bi bi-gear"></i> <p>Cài Đặt</p>
+                  <i class="bi bi-gear"></i> <span>Cài Đặt</span>
                 </MenuItem>
                 <hr />
                 <MenuItem onClick={handleClose}>
-                  <i className="bi bi-box-arrow-left"></i>
-                  <p>Đăng Xuất</p>
+                  <i class="bi bi-box-arrow-left"></i>
+                  <span>Đăng Xuất</span>
                 </MenuItem>
               </Menu>
             </div>
@@ -211,7 +213,7 @@ const Navbar = () => {
         </div>
         <div
           style={{
-            width: "98",
+            width: "98%",
             padding: "22px 0",
           }}
         >
@@ -232,7 +234,6 @@ const Navbar = () => {
             <Route path="/chinhanh" element={<Chinhanh />} />
             <Route path="/donvitinh" element={<Donvitinh />} />
             <Route path="/nhomkhachhang" element={<Nhomkhachhang />} />
-
             <Route path="/nhapkhohanghoa" element={<Nhapkhohanghoa />} />
             <Route path="/xuatkhohanghoa" element={<Xuatkhohanghoa />} />
             <Route path="/chuyenkho" element={<Chuyenkho />} />

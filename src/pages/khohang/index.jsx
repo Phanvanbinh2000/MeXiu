@@ -3,12 +3,17 @@ import "./styles.scss";
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import ReactPaginate from "react-paginate";
 
 const Khohang = () => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
+  };
+
+  const handlePageClick = () => {
+
   };
 
   return (
@@ -72,7 +77,7 @@ const Khohang = () => {
           </div>
         </div>
       </div>
-      <Modal show={showModal} onHide={toggleModal}>
+      <Modal show={showModal} onHide={toggleModal} className="modal">
         <Modal.Header closeButton>
           <Modal.Title>Thêm Mới Kho Hàng</Modal.Title>
         </Modal.Header>
@@ -89,6 +94,24 @@ const Khohang = () => {
           </form>
         </Modal.Body>
       </Modal>
+      <hr />
+      <ReactPaginate
+                    breakLabel="..."
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={5}
+                    nextLabel="next >"
+                    pageCount={10}
+                    previousLabel="< previous"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                  />
     </div>
   );
 };
