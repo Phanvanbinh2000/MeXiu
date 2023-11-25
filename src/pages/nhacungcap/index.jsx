@@ -291,23 +291,7 @@ const Nhacungcap = () => {
                     <TableHeaderColumn dataField="phone" dataAlign="center" dataSort>SĐT</TableHeaderColumn>
                     
                   </BootstrapTable>
-                      <ReactPaginate
-                        breakLabel="..."
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={5}
-                        nextLabel="next >"
-                        pageCount={10}
-                        previousLabel="< previous"
-                        pageClassName="page-item"
-                        pageLinkClassName="page-link"
-                        previousClassName="page-item"
-                        previousLinkClassName="page-link"
-                        nextClassName="page-item"
-                        breakClassName="page-item"
-                        breakLinkClassName="page-link"
-                        containerClassName="pagination"
-                        activeClassName="active"
-                      />
+                     
                 </div>
               </div>
             </div>
