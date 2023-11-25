@@ -1,7 +1,7 @@
 export const products = [
     {
       id: '1',
-      name: 'Hãng Sản Xuất 1',
+      name: 'Phiếu xuất 1',
       chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-01-01',
@@ -15,7 +15,7 @@ export const products = [
     },
     {
       id: '2',
-      name: 'Hãng Sản Xuất 2',
+      name: 'Phiếu xuất 2',
             chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-02-01',
@@ -29,7 +29,7 @@ export const products = [
     },
     {
       id: '3',
-      name: 'Hãng Sản Xuất 3',
+      name: 'Phiếu xuất 3',
             chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-03-01',
@@ -44,7 +44,7 @@ export const products = [
     },
     {
         id: '3',
-        name: 'Hãng Sản Xuất 3',
+        name: 'Phiếu xuất 3',
               chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-03-01',
@@ -58,7 +58,7 @@ export const products = [
       },
       {
         id: '3',
-        name: 'Hãng Sản Xuất 3',
+        name: 'Phiếu xuất 3',
               chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-03-01',
@@ -73,7 +73,7 @@ export const products = [
 
       {
         id: '3',
-        name: 'Hãng Sản Xuất 3',
+        name: 'Phiếu xuất 3',
               chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-03-01',
@@ -87,7 +87,7 @@ export const products = [
       },
       {
         id: '3',
-        name: 'Hãng Sản Xuất 3',
+        name: 'Phiếu xuất 3',
               chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-03-01',
@@ -101,7 +101,7 @@ export const products = [
       },
       {
         id: '3',
-        name: 'Hãng Sản Xuất 3',
+        name: 'Phiếu xuất 3',
               chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-03-01',
@@ -115,7 +115,7 @@ export const products = [
       },
       {
         id: '3',
-        name: 'Hãng Sản Xuất 3',
+        name: 'Phiếu xuất 3',
               chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-03-01',
@@ -129,7 +129,7 @@ export const products = [
       },
       {
         id: '3',
-        name: 'Hãng Sản Xuất 3',
+        name: 'Phiếu xuất 3',
               chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-03-01',
@@ -143,7 +143,7 @@ export const products = [
       },
       {
         id: '3',
-        name: 'Hãng Sản Xuất 3',
+        name: 'Phiếu xuất 3',
               chinhanh:'368 Tôn Đản',
       kho:'368 Tôn Đản',
       createdDate: '2022-03-01',
