@@ -217,7 +217,7 @@ const Donvitinh = () => {
                           <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Ngày Tạo</TableHeaderColumn>
                         </BootstrapTable>
                         {/* <!-- end tbody --> */}
-                      
+                      </table>
                       
                       {/* <!-- Kết Thúc Lưới Dữ Liệu --> */}
                     </div>
