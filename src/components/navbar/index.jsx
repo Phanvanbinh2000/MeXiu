@@ -63,7 +63,7 @@ const Navbar = () => {
             height: `${isOpenNavbar ? "45px" : "24px"}`,
           }}
         />
-        <p>{isOpenNavbar && <b>PHỤ</b>}</p>
+        {/* <p>{isOpenNavbar && <b>PHỤ</b>}</p> */}
         <div>
           <a href="#" className="waves-effect">
             <i
@@ -76,7 +76,7 @@ const Navbar = () => {
             <p className="txtHome">{isOpenNavbar ? "Trang Chủ" : ""}</p>
           </a>
         </div>
-        <p>{isOpenNavbar && <b>PHẦN CHÍNH</b>}</p>
+        {/* <p>{isOpenNavbar && <b>PHẦN CHÍNH</b>}</p> */}
 
         <div className="Main-Nav">
           <ul className="Main-Menu">
