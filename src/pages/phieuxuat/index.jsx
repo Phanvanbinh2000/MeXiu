@@ -1,11 +1,142 @@
 import React, { useState } from "react";
+import { products } from './dataphieuxuat';
 import "./styles.scss";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import ReactPaginate from "react-paginate";
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+// import BootstrapTable from 'react-bootstrap-table-next';
+
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+const actionFormat = (cell, row) => {
+  // let editAction = `<a className="btn btn-secondary btn-sm edit" title="Edit" onClick={this.editData(${row.id})}><i class="fas fa-pencil-alt"></i></a>`; // ví dụ về thao tác sửa
+  // let deleteAction = `<a className="btn btn-danger btn-sm delete" title="Delete" onClick={this.deleteData(${row.id})}><i class="fas fa-trash-alt"></i></a>`; // ví dụ về thao tác xoá
+  // return editAction + " " + deleteAction;
+  
+};
+
+let lastId = products.length > 0 ? parseInt(products[products.length - 1].id) : 0;
+const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreEditable) => {
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // Logic to handle form submission goes here
+    // Tự sinh mã KH
+    lastId++;
+    // Lưu dữ liệu ảo và hiển thị trên lưới dữ liệu
+    const newCustomer = {
+      id: lastId.toString(),
+      name: document.getElementById("name").value,
+      chinhanh: document.getElementById("chinhanh").value,
+      kho: document.getElementById("kho").value,
+      createdDate: document.getElementById("createdDate").value,
+      idKH: document.getElementById("idKH").value,
+      nameKH: document.getElementById("nameKH").value,
+      tongtien: document.getElementById("tongtien").value,
+      note: document.getElementById("note").value
+    };
+    products.push(newCustomer);
+    // Lưu dữ liệu vào localStorage
+    localStorage.setItem('products', JSON.stringify(products));
+    onSave(event);
+  };
+
+  return (
+    <Modal show={true} onHide={onModalClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Thêm Mới Phiếu Nhập</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <form>
+                        Chi Nhánh:{" "}
+                        <input
+                          type="text"
+                          id="chinhanh"
+                          className="form-control"
+                        />
+                        <br />
+                        Kho Hàng:{" "}
+                        <input
+                          type="text"
+                          id="Kho"
+                          className="form-control"
+                        />
+                        <br />
+                        Mã Khách Hàng:{" "}
+                        <input
+                          type="text"
+                          id="idKH"
+                          className="form-control"
+                        />
+                        <br />
+                        Tên Khách Hàng:{" "}
+                        <input
+                          type="text"
+                          id="nameKH"
+                          className="form-control"
+                        />
+                        <br />
+                        Mã Hóa Đơn:{" "}
+                        <input
+                          type="text"
+                          id="id"
+                          className="form-control"
+                        />
+                        <br />
+                        Tên Hóa Đơn:{" "}
+                        <input
+                          type="text"
+                          id="name"
+                          className="form-control"
+                        />
+                        <br />
+                        Tổng tiền:{" "}
+                        <input
+                          type="text"
+                          id="tongtien"
+                          className="form-control"
+                        />
+                        <br />
+                        Ngày tạo:{" "}
+                        <input
+                          type="date"
+                          id="ngayTao"
+                          className="form-control"
+                        />
+                        <br />
+                        Ghi Chú:{" "}
+                        <input
+                          type="text"
+                          id="note"
+                          className="form-control"
+                        />
+                        <br />
+                        <button type="submit" className="btn btn-success">
+                          Lưu
+                        </button>
+                      </form>
+      </Modal.Body>
+    </Modal>
+  );
+}
+const cellEditProp = {
+  mode: 'dbclick', // Chế độ chỉnh sửa khi nhấp vào ô
+  blurToSave: true, // Lưu khi bỏ focus khỏi ô đang chỉnh sửa
+};
+
+const options = {
+  insertModal: createCustomModal
+};
+
 
 const Phieuxuat = () => {
+  var selectRowProp = {
+    mode: "checkbox",
+    clickToSelect: true,
+    bgColor: "rgb(238, 193, 213)" 
+  };
+
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -26,11 +157,19 @@ const Phieuxuat = () => {
             <div className="card">
               <div className="card-body">
                 <form className="row g-3 needs-validation" noValidate>
-                  <div className="col-md-3">
+                  <div className="col-md-2">
                     <label htmlFor="timChiNhanh" className="form-label">
-                      Tìm Chi Nhánh
+                      Chi Nhánh
                     </label>
-                    <select
+
+
+                    <input
+                      type="text"
+                      className="form-control form-control-sm"
+                      id="chinhanh"
+                      required
+                    />
+                    {/* <select
                       className="form-select form-select-sm"
                       id="timChiNhanh"
                       required
@@ -44,23 +183,30 @@ const Phieuxuat = () => {
                     </select>
                     <div className="invalid-feedback">
                       Vui Lòng Chọn Chi Nhánh...
-                    </div>
+                    </div> */}
                   </div>
 
-                  <div className="col-md-2">
+                  {/* <div className="col-md-2">
                     <label>Từ Ngày</label>
                     <input type="date" className="form-control" />
                   </div>
                   <div className="col-md-2">
                     <label>Đến Ngày</label>
                     <input type="date" className="form-control" />
-                  </div>
+                  </div> */}
 
-                  <div className="col-md-3">
+                  <div className="col-md-2">
                     <label htmlFor="timKhoTheoChiNhanh" className="form-label">
-                      Tìm Kho Theo Chi Nhánh
+                      Kho Hàng
                     </label>
-                    <select
+
+                    <input
+                      type="text"
+                      className="form-control form-control-sm"
+                      id="kho"
+                      required
+                    />
+                    {/* <select
                       className="form-select form-select-sm"
                       id="timKhoTheoChiNhanh"
                       required
@@ -72,29 +218,29 @@ const Phieuxuat = () => {
                       <option>Kho 2</option>
                       <option>Kho 3</option>
                     </select>
-                    <div className="invalid-feedback">Vui Lòng Chọn Kho...</div>
+                    <div className="invalid-feedback">Vui Lòng Chọn Kho...</div> */}
                   </div>
 
                   <div className="col-md-2">
                     <label htmlFor="maNhaCungCap" className="form-label">
-                      Mã Nhà Cung Cấp
+                      Mã Khách Hàng
                     </label>
                     <input
                       type="text"
                       className="form-control form-control-sm"
-                      id="maNhaCungCap"
+                      id="idKH"
                       required
                     />
                   </div>
 
                   <div className="col-md-2">
                     <label htmlFor="tenNhaCungCap" className="form-label">
-                      Tên Nhà Cung Cấp
+                      Tên Khách Hàng
                     </label>
                     <input
                       type="text"
                       className="form-control form-control-sm"
-                      id="tenNhaCungCap"
+                      id="nameKH"
                       required
                     />
                   </div>
@@ -106,7 +252,7 @@ const Phieuxuat = () => {
                     <input
                       type="text"
                       className="form-control form-control-sm"
-                      id="maHoaDon"
+                      id="id"
                       required
                     />
                   </div>
@@ -118,12 +264,12 @@ const Phieuxuat = () => {
                     <input
                       type="text"
                       className="form-control form-control-sm"
-                      id="tenHoaDon"
+                      id="name"
                       required
                     />
                   </div>
 
-                  <div className="col-md-3">
+                  {/* <div className="col-md-3">
                     <label htmlFor="timLoaiHoaDon" className="form-label">
                       Tìm Loại Hoá Đơn
                     </label>
@@ -141,13 +287,13 @@ const Phieuxuat = () => {
                     <div className="invalid-feedback">
                       Vui Lòng Chọn Loại Hoá Đơn...
                     </div>
-                  </div>
+                  </div> */}
 
                   <div>
                     <button
                       className="col-md-2 btn btn-primary mb-3"
                       type="button"
-                      id="button-addon2"
+                      id="nutTimKiem"
                     >
                       <i className="fas fa-search"></i>
                     </button>
@@ -155,121 +301,82 @@ const Phieuxuat = () => {
 
                   <Modal show={showModal} onHide={toggleModal}>
                     <Modal.Header closeButton>
-                      <Modal.Title>Thêm Mới Phiếu Nhập</Modal.Title>
+                      <Modal.Title>Thêm Mới Phiếu Xuất</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                       {/* Form goes here */}
                       <form>
-                        <div className="form-group">
-                          <label htmlFor="maChiNhanh">Mã Chi Nhánh:</label>
+                          Chi Nhánh:{" "}
                           <input
                             type="text"
-                            id="maChiNhanh"
+                            id="chinhanh"
                             className="form-control"
-                          />
-                        </div>
-                        <div className="form-group">
+                          /><br />
+                        {/* <div className="form-group">
                           <label htmlFor="tenChiNhanh">Tên Chi Nhánh:</label>
                           <input
                             type="text"
                             id="tenChiNhanh"
                             className="form-control"
                           />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="maNhaCungCap">Mã Nhà Cung Cấp:</label>
+                        </div> */}
+                        Mã Khách Hàng:{" "}
                           <input
                             type="text"
-                            id="maNhaCungCap"
+                            id="idKH"
                             className="form-control"
                           />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="tenNhaCungCap">
-                            Tên Nhà Cung Cấp:
-                          </label>
+                        <br />
+                        Tên Khách Hàng:{" "}
                           <input
                             type="text"
-                            id="tenNhaCungCap"
+                            id="nameKH"
                             className="form-control"
                           />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="tenKho">Tên Kho:</label>
+                        <br />
+                        <br />
+                          Tên Kho:{" "}
                           <input
                             type="text"
-                            id="tenKho"
+                            id="kho"
                             className="form-control"
                           />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="maKho">Mã Kho:</label>
+                        <br />
+                          Tên Hóa Đơn:{" "}
                           <input
                             type="text"
-                            id="maKho"
+                            id="name"
                             className="form-control"
                           />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="tenHopDong">Tên Hợp Đồng:</label>
+                        <br />
+                          Mã Hóa Đơn:{" "}
                           <input
                             type="text"
-                            id="tenHopDong"
+                            id="id"
                             className="form-control"
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="maHopDong">Mã Hợp Đồng:</label>
-                          <input
-                            type="text"
-                            id="maHopDong"
-                            className="form-control"
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="loaiHopDong">Loại Hợp Đồng:</label>
-                          <input
-                            type="text"
-                            id="loaiHopDong"
-                            className="form-control"
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="tongTienTra">Tổng Tiền Trả:</label>
+                          /><br />
+                        Tổng Tiền Trả:{" "}
                           <input
                             type="number"
-                            id="tongTienTra"
+                            id="tongtien"
                             className="form-control"
                           />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="soTienDaTra">Số Tiền Đã Trả:</label>
-                          <input
-                            type="number"
-                            id="soTienDaTra"
-                            className="form-control"
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="ngayNhap">Ngày Xuất:</label>
+                        <br /><br />
+                          Ngày Xuất:{" "}
                           <input
                             type="date"
-                            id="ngayNhap"
+                            id="createdDate"
                             className="form-control"
-                          />
-                        </div>
-                        <div className="form-group">
+                          /><br />
+                        {/* <div className="form-group">
                           <label htmlFor="ngayTao">Ngày Tạo:</label>
                           <input
                             type="date"
                             id="ngayTao"
                             className="form-control"
                           />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="hinhAnhHoaDon">
-                            Hình Ảnh Hoá Đơn:
-                          </label>
+                        </div> */}
+                          Hình Ảnh Hoá Đơn:{" "}
                           <div className="mb-3">
                             <input
                               type="file"
@@ -285,11 +392,8 @@ const Phieuxuat = () => {
                               style={{ display: "none" }}
                             />
                           </div>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="hinhAnhThanhToan">
-                            Hình Ảnh Thanh Toán:
-                          </label>
+                          <br />
+                            Hình Ảnh Thanh Toán:{" "}
                           <div className="mb-3">
                             <input
                               type="file"
@@ -305,15 +409,13 @@ const Phieuxuat = () => {
                               style={{ display: "none" }}
                             />
                           </div>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="ghiChu">Ghi Chú:</label>
+                          <br />
+                          Ghi Chú:{" "}
                           <textarea
                             className="form-control"
                             id="ghiChu"
-                            name="area"
-                          ></textarea>
-                        </div>
+                            name="note"
+                          ></textarea><br />
                         <button type="submit" className="btn btn-success">
                           Lưu
                         </button>
@@ -325,16 +427,9 @@ const Phieuxuat = () => {
                     <button
                       type="button"
                       className="btn btn-success"
-                      onClick={toggleModal}
-                    >
-                      Thêm Mới
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-success"
                       onClick={() => (window.location.href = "#")}
                     >
-                      Phiếu Nhập Chi Tiết
+                      Phiếu Xuất Chi Tiết
                     </button>
                   </div>
                 </form>
@@ -342,115 +437,27 @@ const Phieuxuat = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="table-responsive col-md-2 card-body">
-                      <table
-                        id="example-database datatable-buttons"
-                        className="table table-striped table-bordered dt-responsive nowrap table table-editable table-nowrap align-middle table-edits"
-                        style={{
-                          borderCollapse: "collapse",
-                          borderSpacing: 0,
-                          width: "100%",
-                        }}
-                      >
-                        <thead>
-                          <tr>
-                            <th>
-                              <input type="checkbox" id="select-all" />
-                            </th>
-                            <th>STT</th>
-                            <th>Mã Hoá Đơn</th>
-                            <th>Tên Hoá Đơn</th>
-                            <th>Ngày Xuất</th>
-                            <th>Nhà Cung Cấp</th>
-                            <th>SĐT Nhà Cung Cấp</th>
-                            <th>Tổng Tiền Trả</th>
-                            <th>Đã Trả</th>
-                            <th>Loại Hoá Đơn</th>
-
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr data-id="1">
-                            <td>
-                              <input type="checkbox" className="row-checkbox" />
-                            </td>
-                            <td data-field="id" style={{ width: "80px" }}>
-                              1
-                            </td>
-                            <td data-field="name">VD001</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-
-                            <td>
-                              <a
-                                className="btn btn-secondary btn-sm edit"
-                                title="Edit"
-                              >
-                                <i className="fas fa-pencil-alt"></i>
-                              </a>
-                              <a
-                                className="btn btn-danger btn-sm delete"
-                                title="Delete"
-                              >
-                                <i className="fas fa-trash"></i>
-                              </a>
-                            </td>
-                          </tr>
-                          <tr data-id="1">
-                            <td>
-                              <input type="checkbox" className="row-checkbox" />
-                            </td>
-                            <td data-field="id" style={{ width: "80px" }}>
-                              1
-                            </td>
-                            <td data-field="name">VD001</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-
-                            <td>
-                              <a
-                                className="btn btn-secondary btn-sm edit"
-                                title="Edit"
-                              >
-                                <i className="fas fa-pencil-alt"></i>
-                              </a>
-                              <a
-                                className="btn btn-danger btn-sm delete"
-                                title="Delete"
-                              >
-                                <i className="fas fa-trash"></i>
-                              </a>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <ReactPaginate
-                        breakLabel="..."
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={5}
-                        nextLabel="next >"
-                        pageCount={10}
-                        previousLabel="< previous"
-                        pageClassName="page-item"
-                        pageLinkClassName="page-link"
-                        previousClassName="page-item"
-                        previousLinkClassName="page-link"
-                        nextClassName="page-item"
-                        breakClassName="page-item"
-                        breakLinkClassName="page-link"
-                        containerClassName="pagination"
-                        activeClassName="active"
-                      />
+                    <BootstrapTable
+                          data={products}
+                          selectRow={selectRowProp}
+                          striped
+                          hover
+                          condensed
+                          pagination
+                          insertRow={true}
+                          cellEdit={cellEditProp}
+                          deleteRow
+                          search
+                          tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}
+                          options={options}
+                        >
+                          <TableHeaderColumn dataField="id" isKey dataAlign="center" dataSort>Mã Phiếu Nhập</TableHeaderColumn>
+                          <TableHeaderColumn dataField="name" dataAlign="center" dataSort>Tên Phiếu Nhập</TableHeaderColumn>
+                          <TableHeaderColumn dataField="nameKH" dataAlign="center" dataSort>Khách Hàng</TableHeaderColumn>
+                          <TableHeaderColumn dataField="tongtien" dataAlign="center" dataSort>Tổng Tiền Hóa Đơn</TableHeaderColumn>
+                          <TableHeaderColumn dataField="note" dataAlign="center" dataSort>Ghi Chú</TableHeaderColumn>
+                          <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Ngày Tạo</TableHeaderColumn>
+                        </BootstrapTable>
                     </div>
                   </div>
                 </div>
