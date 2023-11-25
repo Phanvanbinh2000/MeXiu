@@ -1,13 +1,112 @@
 import React, { useState } from "react";
+import { products } from './datanhomkhachhang';
 import "./styles.scss";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import ReactPaginate from "react-paginate";
+//1
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+// import BootstrapTable from 'react-bootstrap-table-next';
 
-const handlePageClick = () => {};
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+
+// Định nghĩa hàm actionFormat
+const actionFormat = (cell, row) => {
+  // let editAction = `<a className="btn btn-secondary btn-sm edit" title="Edit" onClick={this.editData(${row.id})}><i class="fas fa-pencil-alt"></i></a>`; // ví dụ về thao tác sửa
+  // let deleteAction = `<a className="btn btn-danger btn-sm delete" title="Delete" onClick={this.deleteData(${row.id})}><i class="fas fa-trash-alt"></i></a>`; // ví dụ về thao tác xoá
+  // return editAction + " " + deleteAction;
+  
+};
+
+let lastId = products.length > 0 ? parseInt(products[products.length - 1].id) : 0;
+
+const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreEditable) => {
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // Logic to handle form submission goes here
+    // Tự sinh mã KH
+    lastId++;
+    // Lưu dữ liệu ảo và hiển thị trên lưới dữ liệu
+    const newCustomer = {
+      id: lastId.toString(),
+      name: document.getElementById("tenKhachHang").value,
+      address: document.getElementById("maNhomKhachHang").value,
+      phone: document.getElementById("tenNhomKhachHang").value,
+      birthYear: document.getElementById("soDienThoaiKhachHang").value,
+      purchaseDate: document.getElementById("ngaySinhTu").value
+    };
+    products.push(newCustomer);
+    // Lưu dữ liệu vào localStorage
+    localStorage.setItem('products', JSON.stringify(products));
+    onSave(event);
+  };
+
+  return (
+    <Modal show={true} onHide={onModalClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Thêm Mới Khách Hàng</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <form>
+                        Mã Nhà Cung Cấp:{" "}
+                        <input
+                          type="text"
+                          id="maNhaCungCap"
+                          className="form-control"
+                        />
+                        <br />
+                        Tên Nhà Cung Cấp:{" "}
+                        <input
+                          type="text"
+                          id="tenNhaCungCap"
+                          className="form-control"
+                        />
+                        <br />
+                        Số Điện Thoại Nhà Cung Cấp:{" "}
+                        <input
+                          type="text"
+                          id="soDienThoaiNhaCungCap"
+                          className="form-control"
+                        />
+                        <br />
+                        Ghi Chú:{" "}
+                        <textarea
+                          className="form-control"
+                          id="ghiChu"
+                          name="area"
+                        ></textarea>
+                        <br />
+                        <button type="submit" className="btn btn-success">
+                          Lưu
+                        </button>
+                      </form>
+      </Modal.Body>
+    </Modal>
+  );
+}
+const cellEditProp = {
+  mode: 'dbclick', // Chế độ chỉnh sửa khi nhấp vào ô
+  blurToSave: true, // Lưu khi bỏ focus khỏi ô đang chỉnh sửa
+};
+
+const options = {
+  insertModal: createCustomModal
+};
+
 
 const Nhomkhachhang = () => {
+
+  var selectRowProp = {
+    mode: "checkbox",
+    clickToSelect: true,
+    bgColor: "rgb(238, 193, 213)" 
+  };
+
+
+
+
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -115,76 +214,29 @@ const Nhomkhachhang = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="table-responsive col-md-2 card-body">
-                      <table
-                        id="example-database"
-                        className="table table-striped table-bordered dt-responsive nowrap table table-editable table-nowrap align-middle table-edits"
-                        style={{
-                          borderCollapse: "collapse",
-                          borderSpacing: 0,
-                          width: "100%",
-                        }}
+                      <BootstrapTable
+                        data={products}
+                        selectRow={selectRowProp}
+                        striped
+                        hover
+                        condensed
+                        pagination
+                        insertRow={true}
+                        cellEdit={cellEditProp}
+                        deleteRow
+                        search
+                        tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}
+                        options={options}
                       >
-                        <thead>
-                          <tr>
-                            <th>
-                              <input type="checkbox" id="checkAll" />
-                            </th>
-                            <th>STT</th>
-                            <th>Mã nhóm khách hàng</th>
-                            <th>Tên nhóm khách hàng</th>
-                            <th>Số tiền</th>
-                            <th>Chiết khấu</th>
-                            <th>Ngày Tạo</th>
-                            <th>Thao tác</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {/* Dữ liệu từ API sẽ được thêm vào đây */}
-                          <tr>
-                            <td>
-                              <input type="checkbox" className="checkItem" />
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                              <button
-                                className="btn btn-secondary btn-sm edit"
-                                title="Edit"
-                              >
-                                <i className="fas fa-pencil-alt"></i>
-                              </button>
-                              <button
-                                className="btn btn-danger btn-sm delete"
-                                title="Delete"
-                              >
-                                <i className="fas fa-trash"></i>
-                              </button>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                        <TableHeaderColumn dataField="id" isKey dataAlign="center" dataSort>Mã nhóm khách hàng</TableHeaderColumn>
+                        <TableHeaderColumn dataField="name" dataAlign="center" dataSort>Tên nhóm khách hàng</TableHeaderColumn>
+                        <TableHeaderColumn dataField="amount" dataAlign="center" dataSort>Số tiền</TableHeaderColumn>
+                        <TableHeaderColumn dataField="discount" dataAlign="center" dataSort>Chiết khấu</TableHeaderColumn>
+                        <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Ngày Tạo</TableHeaderColumn>
+                        
+                      </BootstrapTable>
                       {/* Kết Thúc Lưới Dữ Liệu */}
-                      <ReactPaginate
-                        breakLabel="..."
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={5}
-                        nextLabel="next >"
-                        pageCount={10}
-                        previousLabel="< previous"
-                        pageClassName="page-item"
-                        pageLinkClassName="page-link"
-                        previousClassName="page-item"
-                        previousLinkClassName="page-link"
-                        nextClassName="page-item"
-                        breakClassName="page-item"
-                        breakLinkClassName="page-link"
-                        containerClassName="pagination"
-                        activeClassName="active"
-                      />
+                      
                     </div>
                   </div>
                 </div>
