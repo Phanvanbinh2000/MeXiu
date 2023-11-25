@@ -681,7 +681,9 @@ const Sanpham = () => {
                   </div>
                   <div className="card-body">
                     <div className="row">
-                      <div id="BanSanPham" className="tabcontent">
+                      <div id="BanSanPham" 
+                      className="tabcontent"
+                      style={{ display: "none" }}>
                         <div className="table-responsive">
                           <BootstrapTable
                             data={products}
