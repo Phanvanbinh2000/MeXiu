@@ -231,16 +231,16 @@ const Tonkho = () => {
                   cellEdit={cellEditProp}
                   deleteRow
                   search
-                  tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}
+                  tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px', width: '2000px' }}
                   options={options}
                 >
-                  <TableHeaderColumn dataField="id" isKey dataAlign="center" dataSort>Mã SP</TableHeaderColumn>
+                  <TableHeaderColumn dataField="id" isKey dataAlign="center" width='70' dataSort>Mã SP</TableHeaderColumn>
                   <TableHeaderColumn dataField="name" dataAlign="center" dataSort>Tên SP</TableHeaderColumn>
-                  <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Số lượng đầu kỳ</TableHeaderColumn>
-                  <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Số lượng đầu kỳ 2</TableHeaderColumn>
-                  <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Số lượng nhập trong kỳ</TableHeaderColumn>
-                  <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Số lượng xuất trong kỳ</TableHeaderColumn>
-                  <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Số lượng còn lại</TableHeaderColumn>
+                  <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>SL đầu kỳ</TableHeaderColumn>
+                  <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>SL đầu kỳ 2</TableHeaderColumn>
+                  <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>SL nhập trong kỳ</TableHeaderColumn>
+                  <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>SL xuất trong kỳ</TableHeaderColumn>
+                  <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>SL còn lại</TableHeaderColumn>
                   <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Giá vốn</TableHeaderColumn>
                   <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Thành tiền</TableHeaderColumn>
                   <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Giá bán</TableHeaderColumn>
