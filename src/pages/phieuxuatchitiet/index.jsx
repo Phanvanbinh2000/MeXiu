@@ -1,11 +1,236 @@
 import React, { useState } from "react";
+import { products } from './dataphieuxuatchitiet';
 import "./styles.scss";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
-import ReactPaginate from "react-paginate";
+import ReactPaginate from "react-paginate";import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+// import BootstrapTable from 'react-bootstrap-table-next';
+
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+const actionFormat = (cell, row) => {
+  // let editAction = `<a className="btn btn-secondary btn-sm edit" title="Edit" onClick={this.editData(${row.id})}><i class="fas fa-pencil-alt"></i></a>`; // ví dụ về thao tác sửa
+  // let deleteAction = `<a className="btn btn-danger btn-sm delete" title="Delete" onClick={this.deleteData(${row.id})}><i class="fas fa-trash-alt"></i></a>`; // ví dụ về thao tác xoá
+  // return editAction + " " + deleteAction;
+  
+};
+
+let lastId = products.length > 0 ? parseInt(products[products.length - 1].id) : 0;
+const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreEditable) => {
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // Logic to handle form submission goes here
+    // Tự sinh mã KH
+    lastId++;
+    // Lưu dữ liệu ảo và hiển thị trên lưới dữ liệu
+    const newCustomer = {
+      id: lastId.toString(),
+      name: document.getElementById("name").value,
+      idHD: document.getElementById("idHD").value,
+      nameHD: document.getElementById("nameHD").value,
+      soLuong: document.getElementById("soLuong").value,
+      idLoaiSp: document.getElementById("idLoaiSp").value,
+      nameLoaiSp: document.getElementById("nameLoaiSp").value,
+      idPhanLoai: document.getElementById("idPhanLoai").value,
+      namePhanLoai: document.getElementById("namePhanLoai").value,
+      diem: document.getElementById("diem").value,
+      gia1: document.getElementById("gia1").value,
+      donVi1: document.getElementById("donVi1").value,
+      gia2: document.getElementById("gia2").value,
+      donVi2: document.getElementById("donVi2").value,
+      gia3: document.getElementById("gia3").value,
+      donVi3: document.getElementById("donVi3").value,
+      gia4: document.getElementById("gia4").value,
+      donVi4: document.getElementById("donVi4").value,
+      soNgay: document.getElementById("soNgay").value,
+      hanSuDung: document.getElementById("hanSuDung").value,
+      maVach: document.getElementById("maVach").value,
+      maQR: document.getElementById("maQR").value,
+      note: document.getElementById("note").value,
+      createdDate: document.getElementById("createdDate").value
+    };
+    products.push(newCustomer);
+    // Lưu dữ liệu vào localStorage
+    localStorage.setItem('products', JSON.stringify(products));
+    onSave(event);
+  };
+
+  return (
+    <Modal show={true} onHide={onModalClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Thêm Mới Phiếu Nhập Chi Tiết</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <form>
+                        Mã Sản Phẩm:{" "}
+                        <input
+                          type="text"
+                          id="maSanPham"
+                          className="form-control"
+                        />
+                        <br />
+                        Tên Sản Phẩm:{" "}
+                        <input
+                          type="text"
+                          id="tenSanPham"
+                          className="form-control"
+                        />
+                        <br />
+                        Mã Loại Sản Phẩm:{" "}
+                        <input
+                          type="text"
+                          id="maLoaiSanPham"
+                          className="form-control"
+                        />
+                        <br />
+                        Tên Loại Sản Phẩm:{" "}
+                        <input
+                          type="text"
+                          id="tenLoaiSanPham"
+                          className="form-control"
+                        />
+                        <br />
+                        Mã Phân Loại Sản Phẩm:{" "}
+                        <input
+                          type="text"
+                          id="maPhanLoaiSanPham"
+                          className="form-control"
+                        />
+                        <br />
+                        Tên Phân Loại Sản Phẩm:{" "}
+                        <input
+                          type="text"
+                          id="tenPhanLoaiSanPham"
+                          className="form-control"
+                        />
+                        <br />
+                        Đơn Vị Tính 1:{" "}
+                        <input
+                          type="text"
+                          id="donViTinh1"
+                          className="form-control"
+                        />
+                        <br />
+                        Đơn Vị Tính 2:{" "}
+                        <input
+                          type="text"
+                          id="donViTinh2"
+                          className="form-control"
+                        />
+                        <br />
+                        Đơn Vị Tính 3:{" "}
+                        <input
+                          type="text"
+                          id="donViTinh3"
+                          className="form-control"
+                        />
+                        <br />
+                        Đơn Vị Tính 4:{" "}
+                        <input
+                          type="text"
+                          id="donViTinh4"
+                          className="form-control"
+                        />
+                        <br />
+                        {/*Đơn Giá: <input type="number" id="dongia" className="form-control" /><br />*/}
+                        Hệ Số 1:{" "}
+                        <input
+                          type="text"
+                          id="heSo1"
+                          className="form-control"
+                        />
+                        <br />
+                        Hệ Số 2:{" "}
+                        <input
+                          type="text"
+                          id="heSo2"
+                          className="form-control"
+                        />
+                        <br />
+                        Hệ Số 3:{" "}
+                        <input
+                          type="text"
+                          id="heSo3"
+                          className="form-control"
+                        />
+                        <br />
+                        Hệ Số 4:{" "}
+                        <input
+                          type="text"
+                          id="heSo4"
+                          className="form-control"
+                        />
+                        <br />
+                        Điểm:{" "}
+                        <input
+                          type="number"
+                          id="Diem"
+                          className="form-control"
+                        />
+                        <br />
+                        Số Ngày Cảnh Báo:{" "}
+                        <input
+                          type="number"
+                          id="soNgayCanhBao"
+                          className="form-control"
+                        />
+                        <br />
+                        Ngày Tạo:{" "}
+                        <input
+                          type="date"
+                          id="ngayTao"
+                          className="form-control"
+                        />
+                        <br />
+                        Hình Ảnh Sản Phẩm:{" "}
+                        <div className="mb-5">
+                          <form action="#" className="dropzone">
+                            <div className="fallback">
+                              <input
+                                name="file"
+                                type="file"
+                                multiple="multiple"
+                              />
+                            </div>
+
+                            <div className="dz-message needsclick"></div>
+                          </form>
+                          {/* <!-- end form --> */}
+                        </div>
+                        Ghi Chú:{" "}
+                        <textarea
+                          className="form-control"
+                          id="ghiChu"
+                          name="area"
+                        ></textarea>
+                        <br />
+                        <button type="submit" className="btn btn-success">
+                          Lưu
+                        </button>
+                      </form>
+      </Modal.Body>
+    </Modal>
+  );
+}
+const cellEditProp = {
+  mode: 'dbclick', // Chế độ chỉnh sửa khi nhấp vào ô
+  blurToSave: true, // Lưu khi bỏ focus khỏi ô đang chỉnh sửa
+};
+
+const options = {
+  insertModal: createCustomModal
+};
+
 
 const Phieuxuatchitiet = () => {
+  var selectRowProp = {
+    mode: "checkbox",
+    clickToSelect: true,
+    bgColor: "rgb(238, 193, 213)" 
+  };
+
+
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -411,120 +636,44 @@ const Phieuxuatchitiet = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="table-responsive col-md-2 card-body">
-                      <table
-                        id="example-database datatable-buttons"
-                        className="table table-striped table-bordered dt-responsive nowrap table table-editable table-nowrap align-middle table-edits"
-                        style={{
-                          borderCollapse: "collapse",
-                          borderSpacing: 0,
-                          width: "100%",
-                        }}
+                      <BootstrapTable
+                        data={products}
+                        selectRow={selectRowProp}
+                        striped
+                        hover
+                        condensed
+                        pagination
+                        insertRow={true}
+                        cellEdit={cellEditProp}
+                        deleteRow
+                        search
+                        tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px', width:'2500px' }}
+                        options={options}
                       >
-                        <thead>
-                          <tr>
-                            <th>
-                              <input type="checkbox" id="select-all" />
-                            </th>
-                            <th>STT</th>
-                            <th>Mã Sản Phẩm</th>
-                            <th>Tên Sản Phẩm</th>
-                            <th>Mã Phân Loại Sản Phẩm</th>
-                            <th>Tên Phân Loại Sản Phẩm</th>
-                            <th>Mã Loại Sản Phẩm</th>
-                            <th>Tên Loại Sản Phẩm</th>
-                            <th>Mã Hoá Đơn</th>
-                            <th>Tên Hoá Đơn</th>
-                            <th>Ngày Xuất</th>
-                            <th>Số Lượng</th>
-                            <th>Điểm</th>
-                            <th>Giá 1</th>
-                            <th>Đơn Vị 1</th>
-                            <th>Giá 2</th>
-                            <th>Đơn Vị 2</th>
-                            <th>Giá 3</th>
-                            <th>Đơn Vị 3</th>
-                            <th>Giá 4</th>
-                            <th>Đơn Vị 4</th>
-                            <th>Số Ngày Cảnh Báo</th>
-                            <th>Hạn Sử Dụng</th>
-                            <th>Mã Vạch</th>
-                            <th>Mã QR</th>
-                            <th>Ghi Chú</th>
-
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr data-id="1">
-                            <td>
-                              <input type="checkbox" className="row-checkbox" />
-                            </td>
-                            <td data-field="id" style={{ width: "80px" }}>
-                              1
-                            </td>
-                            <td data-field="name">VD001</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td data-field="age">Nhóm Vàng</td>
-                            <td>
-                              <a
-                                class="btn btn-secondary btn-sm edit"
-                                title="Edit"
-                              >
-                                <i class="fas fa-pencil-alt"></i>
-                              </a>
-                              <a
-                                class="btn btn-danger btn-sm delete"
-                                title="Delete"
-                              >
-                                <i class="fas fa-trash"></i>
-                              </a>
-                            </td>
-                          </tr>
-                        </tbody>
-                        {/* <!-- end tbody --> */}
-                      </table>
+                        <TableHeaderColumn dataField="id" isKey dataAlign="center" dataSort>Mã Sản Phẩm</TableHeaderColumn>
+                        <TableHeaderColumn dataField="name" dataAlign="center" dataSort>Tên Sản Phẩm</TableHeaderColumn>
+                        <TableHeaderColumn dataField="namePhanLoai" dataAlign="center" dataSort>Tên Phân Loại</TableHeaderColumn>
+                        <TableHeaderColumn dataField="gia1" dataAlign="center" width="100px" dataSort>Giá 1</TableHeaderColumn>
+                        <TableHeaderColumn dataField="donVi1" dataAlign="center" width="100px"  dataSort>Đơn Vị 1</TableHeaderColumn>
+                        <TableHeaderColumn dataField="gia2" dataAlign="center" width="100px"  dataSort>Giá 2</TableHeaderColumn>
+                        <TableHeaderColumn dataField="donVi2" dataAlign="center" width="100px"  dataSort>Đơn Vị 2</TableHeaderColumn>
+                        <TableHeaderColumn dataField="gia3" dataAlign="center" width="100px"  dataSort>Giá 3</TableHeaderColumn>
+                        <TableHeaderColumn dataField="donVi3" dataAlign="center" width="100px"  dataSort>Đơn Vị 3</TableHeaderColumn>
+                        <TableHeaderColumn dataField="gia4" dataAlign="center" width="100px"  dataSort>Giá 4</TableHeaderColumn>
+                        <TableHeaderColumn dataField="donVi4" dataAlign="center" width="100px"  dataSort>Đơn Vị 4</TableHeaderColumn>
+                        <TableHeaderColumn dataField="diem" dataAlign="center" width="100px"  dataSort>Điểm</TableHeaderColumn>
+                        <TableHeaderColumn dataField="soNgay" dataAlign="center" width="100px"  dataSort>Số Ngày</TableHeaderColumn>
+                        <TableHeaderColumn dataField="hanSuDung" dataAlign="center"  dataSort>Hạn Sử Dụng</TableHeaderColumn>
+                        <TableHeaderColumn dataField="maVach" dataAlign="center"  dataSort>Mã Vạch</TableHeaderColumn>
+                        <TableHeaderColumn dataField="maQR" dataAlign="center"  dataSort>Mã QR</TableHeaderColumn>
+                        <TableHeaderColumn dataField="note" dataAlign="center" dataSort>Ghi Chú</TableHeaderColumn>
+                        <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Ngày Tạo</TableHeaderColumn>
+                      </BootstrapTable>
 
                       {/* <!-- Kết Thúc Lưới Dữ Liệu --> */}
                     </div>
                     <hr />
-                    <ReactPaginate
-                      breakLabel="..."
-                      onPageChange={handlePageClick}
-                      pageRangeDisplayed={5}
-                      nextLabel="next >"
-                      pageCount={10}
-                      previousLabel="< previous"
-                      pageClassName="page-item"
-                      pageLinkClassName="page-link"
-                      previousClassName="page-item"
-                      previousLinkClassName="page-link"
-                      nextClassName="page-item"
-                      breakClassName="page-item"
-                      breakLinkClassName="page-link"
-                      containerClassName="pagination"
-                      activeClassName="active"
-                    />
+                   
                   </div>
                 </div>
               </div>
