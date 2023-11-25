@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { products } from './donvitinh';
+import { products } from './datadonvitinh';
 import "./styles.scss";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -197,27 +197,24 @@ const Donvitinh = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="table-responsive col-md-2 card-body">
-                      
-                        <BootstrapTable
-                          data={products}
-                          selectRow={selectRowProp}
-                          striped
-                          hover
-                          condensed
-                          pagination
-                          insertRow={true}
-                          cellEdit={cellEditProp}
-                          deleteRow
-                          search
-                          tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}
-                          options={options}
-                        >
-                          <TableHeaderColumn dataField="id" isKey dataAlign="center" dataSort>Mã Đơn Vị Tính</TableHeaderColumn>
-                          <TableHeaderColumn dataField="name" dataAlign="center" dataSort>Tên Đơn Vị Tính</TableHeaderColumn>
-                          <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Ngày Tạo</TableHeaderColumn>
-                        </BootstrapTable>
-                        {/* <!-- end tbody --> */}
-                      </table>
+                      <BootstrapTable
+                        data={products}
+                        selectRow={selectRowProp}
+                        striped
+                        hover
+                        condensed
+                        pagination
+                        insertRow={true}
+                        cellEdit={cellEditProp}
+                        deleteRow
+                        search
+                        tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}
+                        options={options}
+                      >
+                        <TableHeaderColumn dataField="id" isKey dataAlign="center" dataSort>Mã Đơn Vị Tính</TableHeaderColumn>
+                        <TableHeaderColumn dataField="name" dataAlign="center" dataSort>Tên Đơn Vị Tính</TableHeaderColumn>
+                        <TableHeaderColumn dataField="createdDate" dataAlign="center" dataSort>Ngày Tạo</TableHeaderColumn>
+                      </BootstrapTable>
                       
                       {/* <!-- Kết Thúc Lưới Dữ Liệu --> */}
                     </div>
