@@ -46,7 +46,7 @@ const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreE
   return (
     <Modal show={true} onHide={onModalClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Thêm Mới Khách Hàng</Modal.Title>
+        <Modal.Title>Nhóm Khách Hàng</Modal.Title>
       </Modal.Header>
       <Modal.Body>
       <form>
@@ -203,11 +203,11 @@ const Nhomkhachhang = () => {
                 {/* Kết Thúc font hiển thị popup */}
                 {/*Kết Thúc font hiển thị popup*/}
                 {/*Nút Thêm Mới*/}
-                <div>
+                {/* <div>
                   <Button variant="success" onClick={toggleModal}>
                     Thêm Mới
                   </Button>
-                </div>
+                </div> */}
                 {/*Kết Thúc nút Thêm Mới*/}
                 {/* Kết thúc fomt điền điều kiện lọc */}
                 {/* Lưới Dữ Liệu */}

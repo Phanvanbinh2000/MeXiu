@@ -179,11 +179,11 @@ const Nhacungcap = () => {
             <div className="col-12">
               <div className="card">
                 <div className="card-body">
-                  <div className="col-md-2 mb-3">
+                  {/* <div className="col-md-2 mb-3">
                     <Button variant="success" onClick={toggleModal}>
                       Thêm
                     </Button>
-                  </div>
+                  </div> */}
 
                   {/* <!-- font hiển thị popup --> */}
                   <Modal show={showModal} onHide={toggleModal}>
