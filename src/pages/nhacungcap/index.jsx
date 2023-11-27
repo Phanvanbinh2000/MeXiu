@@ -32,11 +32,11 @@ const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreE
     // Lưu dữ liệu ảo và hiển thị trên lưới dữ liệu
     const newCustomer = {
       id: lastId.toString(),
-      name: document.getElementById("tenKhachHang").value,
-      address: document.getElementById("maNhomKhachHang").value,
-      phone: document.getElementById("tenNhomKhachHang").value,
-      birthYear: document.getElementById("soDienThoaiKhachHang").value,
-      purchaseDate: document.getElementById("ngaySinhTu").value
+      name: document.getElementById("name").value,
+      address: document.getElementById("address").value,
+      phone: document.getElementById("phone").value,
+      note: document.getElementById("note").value,
+      purchaseDate: document.getElementById("purchaseDate").value
     };
     products.push(newCustomer);
     // Lưu dữ liệu vào localStorage
@@ -47,36 +47,43 @@ const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreE
   return (
     <Modal show={true} onHide={onModalClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Thêm Mới Khách Hàng</Modal.Title>
+        <Modal.Title>Thêm Mới Nhà Cung Cấp</Modal.Title>
       </Modal.Header>
       <Modal.Body>
       <form>
-                        Mã Nhà Cung Cấp:{" "}
+                        Mã: 
                         <input
                           type="text"
                           id="maNhaCungCap"
                           className="form-control"
                         />
                         <br />
-                        Tên Nhà Cung Cấp:{" "}
+                        Tên Nhà Cung Cấp: 
                         <input
                           type="text"
                           id="tenNhaCungCap"
                           className="form-control"
                         />
                         <br />
-                        Số Điện Thoại Nhà Cung Cấp:{" "}
+                        Địa Chỉ:
+                        <input
+                          type="text"
+                          id="tenNhaCungCap"
+                          className="form-control"
+                        />
+                        <br />
+                        Số Điện Thoại: 
                         <input
                           type="text"
                           id="soDienThoaiNhaCungCap"
                           className="form-control"
                         />
                         <br />
-                        Ghi Chú:{" "}
+                        Ghi Chú: 
                         <textarea
                           className="form-control"
                           id="ghiChu"
-                          name="area"
+                          name="note"
                         ></textarea>
                         <br />
                         <button type="submit" className="btn btn-success">
@@ -136,7 +143,7 @@ const Nhacungcap = () => {
     <div className="main-content">
       <div className="page-content">
         <div className="container-fluid">
-          <h4 className="card-title">Chi Tiết Nhà Cung Cấp</h4>
+          <h4 className="card-title">Nhà Cung Cấp</h4>
           {/* <!-- Bắt đầu khung chứa điều kiện lọc --> */}
           <div className="card">
             <div className="card-body">
@@ -146,8 +153,7 @@ const Nhacungcap = () => {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Nhập Mã Khách Hàng"
-                    id="maNhaCungCap"
+                    id="id"
                   />
                 </div>
                 <div className="col-md-2">
@@ -155,17 +161,15 @@ const Nhacungcap = () => {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Nhập Tên Khách Hàng"
-                    id="tenNhaCungCap"
+                    id="name"
                   />
                 </div>
                 <div className="col-md-2">
-                  <label>Số Điện Thoại Nhà Cung Cấp</label>
+                  <label>Số Điện Thoại</label>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Nhập Số Điện Thoại Khách Hàng"
-                    id="soDienThoaiNhaCungCap"
+                    id="phone"
                   />
                 </div>
               </div>
@@ -179,41 +183,35 @@ const Nhacungcap = () => {
             <div className="col-12">
               <div className="card">
                 <div className="card-body">
-                  {/* <div className="col-md-2 mb-3">
-                    <Button variant="success" onClick={toggleModal}>
-                      Thêm
-                    </Button>
-                  </div> */}
 
-                  {/* <!-- font hiển thị popup --> */}
-                  <Modal show={showModal} onHide={toggleModal}>
+                  {/* <Modal show={showModal} onHide={toggleModal}>
                     <Modal.Header closeButton>
                       <Modal.Title>Thêm Mới Nhà Cung Cấp</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                       <form>
-                        Mã Nhà Cung Cấp:{" "}
+                        Mã Nhà Cung Cấp: 
                         <input
                           type="text"
                           id="maNhaCungCap"
                           className="form-control"
                         />
                         <br />
-                        Tên Nhà Cung Cấp:{" "}
+                        Tên Nhà Cung Cấp: 
                         <input
                           type="text"
                           id="tenNhaCungCap"
                           className="form-control"
                         />
                         <br />
-                        Số Điện Thoại Khách Hàng:{" "}
+                        Số Điện Thoại Khách Hàng: 
                         <input
                           type="text"
                           id="soDienThoaiNhaCungCap"
                           className="form-control"
                         />
                         <br />
-                        Ghi Chú:{" "}
+                        Ghi Chú: 
                         <textarea
                           className="form-control"
                           id="ghiChu"
@@ -226,37 +224,36 @@ const Nhacungcap = () => {
                       </form>
                     </Modal.Body>
                   </Modal>
-                  {/* <!-- Kết Thúc font hiển thị popup --> */}
 
-                  {/* <!-- font hiển thị popup sửa --> */}
+                 
                   <Modal show={editModal} onHide={toggleEditModal}>
                     <Modal.Header closeButton>
                       <Modal.Title>Sửa Nhà Cung Cấp</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                       <form>
-                        Mã Nhà Cung Cấp:{" "}
+                        Mã Nhà Cung Cấp: 
                         <input
                           type="text"
                           id="maNhaCungCap"
                           className="form-control"
                         />
                         <br />
-                        Tên Nhà Cung Cấp:{" "}
+                        Tên Nhà Cung Cấp: 
                         <input
                           type="text"
                           id="tenNhaCungCap"
                           className="form-control"
                         />
                         <br />
-                        Số Điện Thoại Khách Hàng:{" "}
+                        Số Điện Thoại Khách Hàng: 
                         <input
                           type="text"
                           id="soDienThoaiNhaCungCap"
                           className="form-control"
                         />
                         <br />
-                        Ghi Chú:{" "}
+                        Ghi Chú: 
                         <textarea
                           className="form-control"
                           id="ghiChu"
@@ -268,9 +265,8 @@ const Nhacungcap = () => {
                         </button>
                       </form>
                     </Modal.Body>
-                  </Modal>
-                  {/* <!-- Kết Thúc font hiển thị popup sửa --> */}
-
+                  </Modal> */}
+                  
                   <BootstrapTable
                     data={products}
                     selectRow={selectRowProp}
@@ -285,10 +281,12 @@ const Nhacungcap = () => {
                     tableStyle={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}
                     options={options}
                   >
-                    <TableHeaderColumn dataField="id" isKey dataAlign="center" dataSort>Mã Nhà Cung Cấp</TableHeaderColumn>
+                    <TableHeaderColumn dataField="id" isKey dataAlign="center" dataSort>Mã</TableHeaderColumn>
                     <TableHeaderColumn dataField="name" dataAlign="center" dataSort>Tên Nhà Cung Cấp</TableHeaderColumn>
                     <TableHeaderColumn dataField="address" dataAlign="center" dataSort>Địa Chỉ</TableHeaderColumn>
                     <TableHeaderColumn dataField="phone" dataAlign="center" dataSort>SĐT</TableHeaderColumn>
+                    <TableHeaderColumn dataField="note" dataAlign="center" dataSort>Ghi Chú</TableHeaderColumn>
+                    <TableHeaderColumn dataField="purchaseDate" dataAlign="center" dataSort>Ngày Tạo</TableHeaderColumn>
                     
                   </BootstrapTable>
                      

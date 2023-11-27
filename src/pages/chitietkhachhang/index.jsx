@@ -73,7 +73,6 @@ const options = {
 
 const Chitietkhachhang = () => {
 
-
   var selectRowProp = {
     mode: "checkbox",
     clickToSelect: true,
@@ -90,21 +89,6 @@ const Chitietkhachhang = () => {
   const toggleEditModal = () => {
     setEditModal(!editModal);
   };
-//1
-  
-  
-  // const handleCheckAll = () => {
-  //   const checkboxes = document.querySelectorAll('.row-check');
-  //   checkboxes.forEach((checkbox) => {
-  //     checkbox.checked = true;
-  //   });
-  // };
-
-  // const handleCheck = () => {
-  //   const totalRows = document.querySelectorAll('.row-check').length;
-  //   const checkedRows = document.querySelectorAll('.row-check:checked').length;
-  //   document.getElementById('checkAll').checked = totalRows === checkedRows;
-  // };
 
   const handleCheckBirthdays = () => {
     const today = new Date();
@@ -140,25 +124,20 @@ const Chitietkhachhang = () => {
           <div className="card">
             <div className="card-body">
               <div className="row">
+
                 <div className="col-md-2">
                   <label>Mã Khách Hàng</label>
-                  <input type="text" className="form-control" placeholder="Nhập Mã Khách Hàng" id="maKhachHang" />
+                  <input type="text" className="form-control" id="id" />
                 </div>
                 <div className="col-md-2">
                   <label>Tên Khách Hàng</label>
-                  <input type="text" className="form-control" placeholder="Nhập Tên Khách Hàng" id="tenKhachHang" />
+                  <input type="text" className="form-control" id="tenKhachHang" />
                 </div>
+
+                {/* Field option xổ list Mã + Tên Nhóm Khách Hàng */}
                 <div className="col-md-2">
-                  <label>Mã Nhóm Khách Hàng</label>
-                  <input type="text" className="form-control" placeholder="Nhập Mã Nhóm Khách Hàng" id="maNhomKhachHang" />
-                </div>
-                <div className="col-md-2">
-                  <label>Tên Nhóm Khách Hàng</label>
-                  <input type="text" className="form-control" placeholder="Nhập Tên Nhóm Khách Hàng" id="tenNhomKhachHang" />
-                </div>
-                <div className="col-md-2">
-                  <label>Số Điện Thoại Khách Hàng</label>
-                  <input type="text" className="form-control" placeholder="Nhập Số Điện Thoại Khách Hàng" id="soDienThoaiKhachHang" />
+                  <label>Nhóm Khách Hàng</label>
+                  <input type="text" className="form-control" id="tenNhomKhachHang" />
                 </div>
                 <div className="col-md-2">
                   <label>Ngày Sinh Từ</label>
@@ -179,29 +158,16 @@ const Chitietkhachhang = () => {
 
 
           {/* <!-- Lưới Dữ Liệu --> */}
-
-
-
           <div className="row">
             <div className="col-12">
               <div className="card">
                 <div className="card-body">
-
-
-
-
-                  <div className="col-md-2 mb-3">
-                    {/* <Button variant="success" onClick={toggleModal}>
-                      Thêm
-                    </Button> */}
-                  </div>
                   <div className="col-md-2 mb-3">
                     <button id="checkBirthdays" type="button" className="btn btn-primary" onClick={handleCheckBirthdays}>Kiểm tra
                       sinh nhật</button>
                   </div>
 
-                  {/* <!-- font hiển thị popup --> */}
-                  <Modal show={showModal} onHide={toggleModal}>
+                  {/* <Modal show={showModal} onHide={toggleModal}>
                     <Modal.Header closeButton>
                       <Modal.Title>Thêm Mới Khách Hàng</Modal.Title>
                     </Modal.Header>
@@ -218,9 +184,7 @@ const Chitietkhachhang = () => {
                       </form>
                     </Modal.Body>
                   </Modal>
-                  {/* <!-- Kết Thúc font hiển thị popup --> */}
 
-                  {/* <!-- font hiển thị popup sửa --> */}
                   <Modal show={editModal} onHide={toggleEditModal}>
                     <Modal.Header closeButton>
                       <Modal.Title>Sửa Chi Tiết Khách Hàng</Modal.Title>
@@ -237,8 +201,7 @@ const Chitietkhachhang = () => {
                         <button type="submit" className="btn btn-success">Lưu</button>
                       </form>
                     </Modal.Body>
-                  </Modal>
-                  {/* <!-- Kết Thúc font hiển thị popup sửa --> */}
+                  </Modal> */}
 
                   <BootstrapTable
                     data={products}
@@ -269,24 +232,8 @@ const Chitietkhachhang = () => {
             {/* <!-- end col --> */}
           </div>
           {/* <!-- end row --> */}
-
-         
-
-         
-
-
-
-
-
-
-
         </div>
       </div>
-
-
-
-
-
     </div>
   );
 };

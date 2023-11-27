@@ -4,7 +4,7 @@ export const products = [
       name: 'Nguyễn Văn A',
       address: 'Hà Nội',
       phone: '0123456789',
-      birthYear: '1990',
+      note: '1990',
       purchaseDate: '2022-01-01'
     },
     {
@@ -12,7 +12,7 @@ export const products = [
       name: 'Trần Văn B',
       address: 'Hồ Chí Minh',
       phone: '0987654321',
-      birthYear: '1991',
+      note: '1991',
       purchaseDate: '2022-02-01'
     },
     {
@@ -20,7 +20,7 @@ export const products = [
       name: 'Lê Văn C',
       address: 'Đà Nẵng',
       phone: '0123456789',
-      birthYear: '1992',
+      note: '1992',
       purchaseDate: '2022-03-01'
     },
     {
@@ -28,7 +28,7 @@ export const products = [
       name: 'Phạm Văn D',
       address: 'Hải Phòng',
       phone: '0987654321',
-      birthYear: '1993',
+      note: '1993',
       purchaseDate: '2022-04-01'
     },
     {
@@ -36,7 +36,7 @@ export const products = [
       name: 'Nguyễn Văn E',
       address: 'Cần Thơ',
       phone: '0123456789',
-      birthYear: '1994',
+      note: '1994',
       purchaseDate: '2022-05-01'
     },
     {
@@ -44,7 +44,7 @@ export const products = [
       name: 'Trần Văn F',
       address: 'Bình Dương',
       phone: '0987654321',
-      birthYear: '1995',
+      note: '1995',
       purchaseDate: '2022-06-01'
     },
     {
@@ -52,7 +52,7 @@ export const products = [
       name: 'Lê Văn G',
       address: 'Nghệ An',
       phone: '0123456789',
-      birthYear: '1996',
+      note: '1996',
       purchaseDate: '2022-07-01'
     },
     {
@@ -60,7 +60,7 @@ export const products = [
       name: 'Phạm Văn H',
       address: 'Hà Tĩnh',
       phone: '0987654321',
-      birthYear: '1997',
+      note: '1997',
       purchaseDate: '2022-08-01'
     },
     {
@@ -68,7 +68,7 @@ export const products = [
       name: 'Nguyễn Văn I',
       address: 'Quảng Bình',
       phone: '0123456789',
-      birthYear: '1998',
+      note: '1998',
       purchaseDate: '2022-09-01'
     },
     {
@@ -76,7 +76,7 @@ export const products = [
       name: 'Trần Văn J',
       address: 'Quảng Trị',
       phone: '0987654321',
-      birthYear: '1999',
+      note: '1999',
       purchaseDate: '2022-10-01'
     },
     {
@@ -84,7 +84,7 @@ export const products = [
       name: 'Lê Văn K',
       address: 'Thừa Thiên Huế',
       phone: '0123456789',
-      birthYear: '2000',
+      note: '2000',
       purchaseDate: '2022-11-01'
     },
     {
@@ -92,7 +92,7 @@ export const products = [
       name: 'Phạm Văn L',
       address: 'Đà Nẵng',
       phone: '0987654321',
-      birthYear: '2001',
+      note: '2001',
       purchaseDate: '2022-12-01'
     },
     // Thêm dữ liệu mẫu tại đây
