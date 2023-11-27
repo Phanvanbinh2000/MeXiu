@@ -31,11 +31,10 @@ const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreE
     // Lưu dữ liệu ảo và hiển thị trên lưới dữ liệu
     const newCustomer = {
       id: lastId.toString(),
-      name: document.getElementById("tenKhachHang").value,
-      address: document.getElementById("maNhomKhachHang").value,
-      phone: document.getElementById("tenNhomKhachHang").value,
-      birthYear: document.getElementById("soDienThoaiKhachHang").value,
-      purchaseDate: document.getElementById("ngaySinhTu").value
+      name: document.getElementById("name").value,
+      amount: document.getElementById("amount").value,
+      discount: document.getElementById("discount").value,
+      createdDate: document.getElementById("createdDate").value
     };
     products.push(newCustomer);
     // Lưu dữ liệu vào localStorage
@@ -50,33 +49,33 @@ const createCustomModal = (onModalClose, onSave, columns, validateState, ignoreE
       </Modal.Header>
       <Modal.Body>
       <form>
-                        Mã Nhà Cung Cấp:{" "}
+                        Mã Nhóm Khách Hàng: 
                         <input
                           type="text"
-                          id="maNhaCungCap"
+                          id="id"
                           className="form-control"
                         />
                         <br />
-                        Tên Nhà Cung Cấp:{" "}
+                        Tên Nhóm Khách Hàng: 
                         <input
                           type="text"
-                          id="tenNhaCungCap"
+                          id="name"
                           className="form-control"
                         />
                         <br />
-                        Số Điện Thoại Nhà Cung Cấp:{" "}
+                        Số tiền: 
                         <input
-                          type="text"
-                          id="soDienThoaiNhaCungCap"
+                          type="number"
+                          id="amount"
                           className="form-control"
                         />
                         <br />
-                        Ghi Chú:{" "}
-                        <textarea
+                        Chiết Khấu: 
+                        <input
+                          type="number"
+                          id="discount"
                           className="form-control"
-                          id="ghiChu"
-                          name="area"
-                        ></textarea>
+                        />
                         <br />
                         <button type="submit" className="btn btn-success">
                           Lưu
